@@ -66,8 +66,18 @@
     .title{
       display:flex; align-items:center; justify-content:space-between;
       gap:10px; padding-bottom:10px; border-bottom:1px solid var(--line);
+      flex-wrap:wrap;
       position:sticky; top:0; background: rgba(15,23,42,.75); backdrop-filter: blur(10px);
       z-index:5;
+    }
+    .panelGrip{
+      display:none;
+      width:44px;
+      height:5px;
+      border-radius:999px;
+      background: rgba(229,231,235,.45);
+      margin:2px auto 4px;
+      flex:0 0 100%;
     }
     .title h1{font-size:14px; margin:0; letter-spacing:.4px; color:#fff}
     .badge{
@@ -360,10 +370,18 @@
         transform: translateY(calc(100% - 58px));
         transition: transform .28s ease;
         border-radius: 18px;
-        overflow: hidden;
+        overflow: auto;
+        -webkit-overflow-scrolling: touch;
       }
       aside.panel.open{
         transform: translateY(0);
+      }
+      #leftPanel .title{
+        touch-action:none;
+        user-select:none;
+      }
+      .panelGrip{
+        display:block;
       }
       .mobileOnly{
         display:inline-flex;
@@ -424,6 +442,7 @@
     <!-- LEFT PANEL -->
     <aside class="panel" id="leftPanel">
       <div class="title panel-inner">
+        <div class="panelGrip" aria-hidden="true"></div>
         <h1>Digital Flyer Maker Pro</h1>
         <div class="badge" id="badgeSize">A4 • 96DPI Edit</div>
       </div>
