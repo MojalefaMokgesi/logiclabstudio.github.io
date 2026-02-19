@@ -149,12 +149,14 @@
     .hamburger{display:none}
 
     /* Hero */
-    .hero{padding:64px 0 30px}
-    .hero-grid{
-      display:grid;
-      grid-template-columns: 1.1fr .9fr;
-      gap:32px;
-      align-items:stretch;
+    .hero{padding:72px 0 44px}
+    .hero-copy{
+      max-width:900px;
+      margin:0 auto;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      text-align:center;
     }
     .kicker{
       display:inline-flex; align-items:center; gap:10px;
@@ -166,25 +168,39 @@
       font-weight:700;
       font-size:13px;
       width:fit-content;
+      margin-bottom:20px;
     }
     .dot{
       width:8px; height:8px; border-radius:999px;
       background: var(--ok);
       box-shadow: 0 0 0 4px rgba(34,197,94,.12);
     }
-    h1{
-      margin:14px 0 12px;
+    .hero-copy h1{
+      margin:0;
       font-size: clamp(34px, 4.4vw, 54px);
       line-height:1.05;
       letter-spacing: -0.8px;
+      width:100%;
+      max-width:22ch;
+      text-align:center;
     }
-    .lead{
-      margin:0 0 22px;
+    .hero-copy .lead{
+      margin:26px 0 0;
       font-size: 16px;
       color: rgba(148,163,184,.95);
-      max-width: 56ch;
+      max-width: 68ch;
+      width:100%;
+      text-align:center;
     }
-    .hero-cta{display:flex; flex-wrap:wrap; gap:12px; align-items:center}
+    .hero-cta{
+      margin-top:36px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+      align-items:center;
+      justify-content:center;
+      width:100%;
+    }
     .hero-cta .btn{padding:13px 16px}
     .js .hero-copy h1,
     .js .hero-copy .lead{
@@ -206,8 +222,10 @@
       50%, 100%{ border-right-color: transparent; }
     }
     .trust{
-      margin-top:18px;
+      margin-top:30px;
       display:flex; flex-wrap:wrap; gap:10px;
+      justify-content:center;
+      width:100%;
       color: rgba(148,163,184,.92);
       font-weight:650;
       font-size:13px;
@@ -218,200 +236,6 @@
       border-radius:999px;
       background: rgba(17,24,39,.45);
     }
-
-    .hero-card{
-      border-radius: var(--radius2);
-      border: 1px solid rgba(148,163,184,.14);
-      background: rgba(17,24,39,.65);
-      box-shadow: var(--shadow);
-      overflow:hidden;
-      position:relative;
-      min-height: 420px;
-      opacity:0;
-      transform: translateY(32px);
-      transition: opacity .7s ease, transform .7s cubic-bezier(.2,.7,.2,1);
-    }
-    .hero-card:before{
-      content:"";
-      position:absolute; inset:-2px;
-      background: radial-gradient(480px 240px at 30% 15%, rgba(96,165,250,.22), transparent 60%),
-                  radial-gradient(520px 300px at 75% 30%, rgba(167,139,250,.20), transparent 60%),
-                  radial-gradient(520px 320px at 40% 90%, rgba(34,197,94,.12), transparent 60%);
-      pointer-events:none;
-    }
-    .hero-card:after{
-      content:"";
-      position:absolute;
-      inset:-20%;
-      background: linear-gradient(110deg, transparent 30%, rgba(255,255,255,.16) 50%, transparent 70%);
-      transform: translateX(-70%) rotate(6deg);
-      pointer-events:none;
-      animation: dashboardShimmer 6.5s linear infinite;
-    }
-    .hero-card.in-view{
-      opacity:1;
-      transform: translateY(0);
-      animation: dashboardFloat 7s ease-in-out .75s infinite;
-    }
-    .mock{
-      position:absolute; inset:18px;
-      border-radius: 18px;
-      border: 1px solid rgba(148,163,184,.12);
-      background: rgba(11,15,25,.55);
-      overflow:hidden;
-    }
-    .mock-video{
-      position:absolute;
-      inset:0;
-      width:100%;
-      height:100%;
-      object-fit:cover;
-      opacity:.28;
-      filter: saturate(1.05) contrast(1.02);
-      pointer-events:none;
-      z-index:0;
-    }
-    .mock:before{
-      content:"";
-      position:absolute;
-      inset:0;
-      background:
-        radial-gradient(80% 60% at 50% 100%, rgba(17,24,39,.34), transparent 70%),
-        linear-gradient(180deg, rgba(11,15,25,.45), rgba(11,15,25,.62));
-      pointer-events:none;
-      z-index:1;
-    }
-    .mock-top{
-      display:flex; align-items:center; justify-content:space-between;
-      padding:12px 14px;
-      border-bottom: 1px solid rgba(148,163,184,.10);
-      background: rgba(17,24,39,.45);
-      position:relative;
-      z-index:2;
-    }
-    .circles{display:flex; gap:8px}
-    .c{width:10px; height:10px; border-radius:999px; background: rgba(148,163,184,.35)}
-    .c:nth-child(1){background: rgba(239,68,68,.65)}
-    .c:nth-child(2){background: rgba(245,158,11,.65)}
-    .c:nth-child(3){background: rgba(34,197,94,.65)}
-    .mock-title{font-size:13px; color: rgba(229,231,235,.85); font-weight:700}
-    .mock-body{
-      padding:14px;
-      display:grid;
-      gap:12px;
-      grid-template-columns: 1fr;
-      position:relative;
-      z-index:2;
-    }
-    .mini{
-      border:1px solid rgba(148,163,184,.12);
-      border-radius: 14px;
-      background: rgba(17,24,39,.45);
-      padding:12px;
-    }
-    .mini h3{margin:0 0 6px; font-size:14px; letter-spacing:-.2px}
-    .mini p{margin:0; color: rgba(148,163,184,.92); font-size:13px}
-    .dash-head{
-      display:flex; align-items:center; justify-content:space-between; gap:10px; flex-wrap:wrap;
-    }
-    .dash-controls{
-      display:flex; gap:8px; flex-wrap:wrap;
-    }
-    .dash-select{
-      border:1px solid rgba(148,163,184,.2);
-      background: rgba(11,15,25,.55);
-      color: rgba(229,231,235,.95);
-      border-radius: 10px;
-      padding:7px 9px;
-      font-size:12px;
-      font-weight:700;
-    }
-    .dash-btn{
-      border:1px solid rgba(148,163,184,.2);
-      background: rgba(11,15,25,.55);
-      color: rgba(229,231,235,.95);
-      border-radius: 10px;
-      padding:7px 10px;
-      font-size:12px;
-      font-weight:800;
-      cursor:pointer;
-    }
-    .kpiGrid{
-      display:grid;
-      grid-template-columns: repeat(4, minmax(0,1fr));
-      gap:10px;
-    }
-    .kpi{
-      border:1px solid rgba(148,163,184,.14);
-      border-radius: 12px;
-      padding:9px;
-      background: rgba(11,15,25,.46);
-    }
-    .kpi b{display:block; font-size:16px; margin-bottom:2px;}
-    .kpi span{font-size:11px; color: rgba(148,163,184,.92);}
-    .bar{
-      height:9px;
-      border:1px solid rgba(148,163,184,.2);
-      border-radius:999px;
-      background: rgba(11,15,25,.45);
-      overflow:hidden;
-      margin: 6px 0;
-    }
-    .bar > i{
-      display:block;
-      height:100%;
-      width:0;
-      background: linear-gradient(90deg, rgba(96,165,250,.92), rgba(34,197,94,.88));
-      transition: width .45s ease;
-    }
-    .barMeta{
-      font-size:11px;
-      color: rgba(229,231,235,.9);
-      font-weight:800;
-    }
-    .feed{
-      margin:0;
-      padding-left:18px;
-      color: rgba(148,163,184,.95);
-      font-size:12px;
-      line-height:1.5;
-      display:grid;
-      gap:5px;
-    }
-    @media (max-width: 1100px){
-      .kpiGrid{grid-template-columns: repeat(2, minmax(0,1fr));}
-    }
-    .row{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap:10px;
-    }
-    .tag{
-      display:inline-flex; align-items:center; gap:8px;
-      padding:8px 10px;
-      border-radius: 999px;
-      border:1px solid rgba(148,163,184,.14);
-      background: rgba(17,24,39,.45);
-      color: rgba(229,231,235,.9);
-      font-size:12px;
-      font-weight:700;
-      width: fit-content;
-    }
-    .spark{
-      width:10px; height:10px;
-      border-radius:3px;
-      background: linear-gradient(135deg, var(--brand), var(--brand2));
-      box-shadow: 0 0 0 4px rgba(96,165,250,.12);
-    }
-    @keyframes dashboardFloat{
-      0%,100%{transform: translateY(0);}
-      50%{transform: translateY(-10px);}
-    }
-    @keyframes dashboardShimmer{
-      0%{transform: translateX(-70%) rotate(6deg);}
-      100%{transform: translateX(85%) rotate(6deg);}
-    }
-
     /* Sections */
     section{padding:56px 0}
     .section-head{display:flex; align-items:flex-end; justify-content:space-between; gap:16px; margin-bottom:18px}
@@ -673,8 +497,6 @@
 
     /* Mobile */
     @media (max-width: 920px){
-      .hero-grid{grid-template-columns: 1fr;}
-      .hero-card{min-height: 380px}
       .grid-3{grid-template-columns: 1fr;}
       .grid-2{grid-template-columns: 1fr;}
       .pricing{grid-template-columns: 1fr;}
@@ -682,16 +504,31 @@
       .footer-grid{grid-template-columns: 1fr;}
       .footlinks{justify-content:flex-start}
     }
+    @media (max-width: 640px){
+      .hero-cta{
+        flex-direction:column;
+        align-items:stretch;
+        max-width: 360px;
+      }
+      .hero-cta .btn{
+        width:100%;
+        justify-content:center;
+      }
+    }
     @media (max-width: 720px){
       .navlinks{display:none}
       .hamburger{display:inline-flex}
     }
     @media (prefers-reduced-motion: reduce){
       *{scroll-behavior:auto !important; transition:none !important; animation:none !important}
-      .hero-card{opacity:1; transform:none;}
       .typing-caret{border-right:none;}
     }
-  </style>
+</style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="premium-theme.css">
+  <script src="premium-ui.js" defer></script>
 </head>
 
 <body>
@@ -752,86 +589,25 @@
   <main id="top">
     <div class="container">
       <section class="hero">
-        <div class="hero-grid">
-          <div class="hero-copy">
-            <div class="kicker"><span class="dot" aria-hidden="true"></span>Shipping clean software, fast.</div>
-            <h1>Build products that feel premium, and work reliably.</h1>
-            <p class="lead">
-              Logic Lab is a software development studio for founders and businesses that need quality.
-              We design, build, and ship web apps, mobile apps, and APIs with speed and discipline.
-            </p>
+        <div class="hero-copy">
+          <h1>Build products that feel premium, and work reliably.</h1>
+          <p class="lead">
+            Logic Lab is a software development studio for founders and businesses that need quality.
+            We design, build, and ship web apps, mobile apps, and APIs with speed and discipline.
+          </p>
 
-            <div class="hero-cta">
-              <a class="btn primary" href="#pricing">See packages</a>
-              <a class="btn new" href="CV Gen.html">NEW: CV Generator</a>
-              <a class="btn" href="#tools">Explore tools</a>
-              <button class="btn" type="button" id="openContact1">Talk to us</button>
-            </div>
-
-            <div class="trust" aria-label="Highlights">
-              <span class="chip">⚡ Fast delivery</span>
-              <span class="chip">🔒 Secure by default</span>
-              <span class="chip">📈 Built to scale</span>
-              <span class="chip">🧾 Clear pricing</span>
-            </div>
+          <div class="hero-cta">
+            <a class="btn primary" href="#pricing">See packages</a>
+            <a class="btn new" href="CV Gen.html">NEW: CV Generator</a>
+            <a class="btn" href="#tools">Explore tools</a>
+            <button class="btn" type="button" id="openContact1">Talk to us</button>
           </div>
 
-          <div class="hero-card" aria-label="Preview">
-            <div class="mock" role="img" aria-label="Product delivery dashboard mock">
-              <video class="mock-video" autoplay muted loop playsinline preload="metadata" aria-hidden="true">
-                <source src="dashboard.mp4" type="video/mp4" />
-              </video>
-              <div class="mock-top">
-                <div class="circles" aria-hidden="true"><span class="c"></span><span class="c"></span><span class="c"></span></div>
-                <div class="mock-title">Logic Lab · Delivery Dashboard</div>
-                <span class="tag"><span class="spark" aria-hidden="true"></span>Live build</span>
-              </div>
-              <div class="mock-body">
-                <div class="mini">
-                  <div class="dash-head">
-                    <h3>Weekly build status</h3>
-                    <div class="dash-controls">
-                      <select id="dashSprint" class="dash-select" aria-label="Choose sprint">
-                        <option value="launch">Sprint: Launch</option>
-                        <option value="stabilize">Sprint: Stabilize</option>
-                        <option value="scale">Sprint: Scale</option>
-                      </select>
-                      <button id="dashRefresh" class="dash-btn" type="button">Refresh</button>
-                      <button id="dashVideoToggle" class="dash-btn" type="button">Pause video</button>
-                    </div>
-                  </div>
-                  <p id="dashStatus">Milestones, QA checks, and deployment logs are visible in one place.</p>
-                </div>
-                <div class="kpiGrid" aria-label="Delivery metrics">
-                  <div class="kpi"><b id="dashDeploys">7</b><span>Deploys this week</span></div>
-                  <div class="kpi"><b id="dashUptime">99.98%</b><span>Uptime</span></div>
-                  <div class="kpi"><b id="dashLead">2.4d</b><span>Lead time</span></div>
-                  <div class="kpi"><b id="dashAlerts">2 open</b><span>QA alerts</span></div>
-                </div>
-                <div class="row">
-                  <div class="mini">
-                    <h3>Speed</h3>
-                    <div class="bar"><i id="dashSpeedBar"></i></div>
-                    <div class="barMeta" id="dashSpeedVal">92%</div>
-                    <p>Lean scope, tight feedback loops, rapid iteration.</p>
-                  </div>
-                  <div class="mini">
-                    <h3>Quality</h3>
-                    <div class="bar"><i id="dashQualityBar"></i></div>
-                    <div class="barMeta" id="dashQualityVal">96%</div>
-                    <p>Testing plus reviews to keep bugs low and confidence high.</p>
-                  </div>
-                </div>
-                <div class="mini">
-                  <h3>Latest activity</h3>
-                  <ul class="feed" id="dashFeed">
-                    <li>CI passed and deployed to staging.</li>
-                    <li>QA run completed with zero critical issues.</li>
-                    <li>Client feedback merged into sprint board.</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
+          <div class="trust" aria-label="Highlights">
+            <span class="chip">⚡ Fast delivery</span>
+            <span class="chip">🔒 Secure by default</span>
+            <span class="chip">📈 Built to scale</span>
+            <span class="chip">🧾 Clear pricing</span>
           </div>
         </div>
       </section>
@@ -1529,23 +1305,6 @@
       }
     });
 
-    // Hero reveal animations
-    function revealOnceOnView(el, threshold){
-      if (!el) return;
-      if (!('IntersectionObserver' in window)){
-        el.classList.add('in-view');
-        return;
-      }
-      const io = new IntersectionObserver((entries, observer) => {
-        entries.forEach((entry) => {
-          if (!entry.isIntersecting) return;
-          el.classList.add('in-view');
-          observer.disconnect();
-        });
-      }, { threshold });
-      io.observe(el);
-    }
-
     // Typewriter for hero copy
     function typeText(el, text, speed, done){
       if (!el) return done && done();
@@ -1610,98 +1369,7 @@
       io.observe(copy);
     }
 
-    function initDashboardPanel(){
-      const sprintSel = $('dashSprint');
-      const refreshBtn = $('dashRefresh');
-      const videoBtn = $('dashVideoToggle');
-      const video = document.querySelector('.mock-video');
-      if (!sprintSel) return;
-
-      const scenarios = {
-        launch: {
-          status: 'Launch sprint is on track with active QA and fast merge cycles.',
-          deploys: '7',
-          uptime: '99.98%',
-          lead: '2.4d',
-          alerts: '2 open',
-          speed: 92,
-          quality: 96,
-          feed: [
-            'CI passed and deployed to staging.',
-            'QA run completed with zero critical issues.',
-            'Client feedback merged into sprint board.'
-          ]
-        },
-        stabilize: {
-          status: 'Stabilization sprint focused on reliability and regression coverage.',
-          deploys: '5',
-          uptime: '99.99%',
-          lead: '2.1d',
-          alerts: '1 open',
-          speed: 84,
-          quality: 98,
-          feed: [
-            'Regression suite expanded by 34 test cases.',
-            'Error budget alert resolved on checkout API.',
-            'Performance benchmark improved by 18%.'
-          ]
-        },
-        scale: {
-          status: 'Scale sprint focused on throughput, caching, and cloud readiness.',
-          deploys: '9',
-          uptime: '99.97%',
-          lead: '1.8d',
-          alerts: '3 open',
-          speed: 95,
-          quality: 91,
-          feed: [
-            'Read replica enabled for reporting queries.',
-            'Queue workers autoscaled for peak load.',
-            'Stress test passed at 4x baseline traffic.'
-          ]
-        }
-      };
-
-      const setScenario = (key) => {
-        const d = scenarios[key] || scenarios.launch;
-        $('dashStatus').textContent = d.status;
-        $('dashDeploys').textContent = d.deploys;
-        $('dashUptime').textContent = d.uptime;
-        $('dashLead').textContent = d.lead;
-        $('dashAlerts').textContent = d.alerts;
-        $('dashSpeedVal').textContent = `${d.speed}%`;
-        $('dashQualityVal').textContent = `${d.quality}%`;
-        $('dashSpeedBar').style.width = `${d.speed}%`;
-        $('dashQualityBar').style.width = `${d.quality}%`;
-        $('dashFeed').innerHTML = d.feed.map(item => `<li>${item}</li>`).join('');
-      };
-
-      sprintSel.addEventListener('change', (e) => setScenario(e.target.value));
-
-      refreshBtn?.addEventListener('click', () => {
-        const active = sprintSel.value;
-        setScenario(active);
-        refreshBtn.textContent = 'Updated';
-        setTimeout(() => { refreshBtn.textContent = 'Refresh'; }, 900);
-      });
-
-      videoBtn?.addEventListener('click', () => {
-        if (!video) return;
-        if (video.paused){
-          video.play().catch(()=>{});
-          videoBtn.textContent = 'Pause video';
-        } else {
-          video.pause();
-          videoBtn.textContent = 'Play video';
-        }
-      });
-
-      setScenario('launch');
-    }
-
-    initDashboardPanel();
     initHeroTypewriter();
-    revealOnceOnView(document.querySelector('.hero-card'), 0.28);
 
     // Nice-to-have: smooth scroll for in-page links
     document.querySelectorAll('a[href^="#"]').forEach(a => {
