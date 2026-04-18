@@ -1,1387 +1,1494 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#0b0f19" />
-  <title>Logic Lab | Software Development Studio</title>
-
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="theme-color" content="#050505"/>
+  <title>Logic Lab — Software Development Studio</title>
   <link rel="icon" type="image/png" href="favicon.ico">
-
-  <!-- Google AdSense (MERGED) -->
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5622407838304076"
-    crossorigin="anonymous"></script>
-
-  <meta name="description" content="Logic Lab is a software development studio building fast, reliable web and mobile products for growing businesses." />
-
-  <!-- Open Graph -->
-  <meta property="og:title" content="Logic Lab | Software Development Studio" />
-  <meta property="og:description" content="We build fast, reliable web and mobile products for growing businesses." />
-  <meta property="og:type" content="website" />
-  <script>document.documentElement.classList.add('js');</script>
-
-  <style>
-    :root{
-      --bg:#0b0f19;
-      --card:#111827;
-      --muted:#94a3b8;
-      --text:#e5e7eb;
-      --soft:#1f2937;
-      --brand:#60a5fa;
-      --brand2:#a78bfa;
-      --ok:#22c55e;
-      --warn:#f59e0b;
-      --danger:#ef4444;
-      --ring: rgba(96,165,250,.45);
-      --shadow: 0 18px 40px rgba(0,0,0,.35);
-      --shadow2: 0 10px 25px rgba(0,0,0,.28);
-      --radius: 18px;
-      --radius2: 24px;
-      --max: 1120px;
-    }
-
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
-      background:
-        radial-gradient(1200px 700px at 10% -10%, rgba(96,165,250,.25), transparent 60%),
-        radial-gradient(900px 600px at 110% 10%, rgba(167,139,250,.22), transparent 55%),
-        radial-gradient(900px 600px at 50% 120%, rgba(34,197,94,.10), transparent 55%),
-        var(--bg);
-      color:var(--text);
-      line-height:1.4;
-      overflow-x:hidden;
-    }
-
-    a{color:inherit; text-decoration:none}
-    .container{max-width:var(--max); margin:0 auto; padding:0 20px}
-
-    /* Top bar */
-    header{
-      position:sticky; top:0; z-index:50;
-      backdrop-filter: blur(12px);
-      background: rgba(11,15,25,.55);
-      border-bottom: 1px solid rgba(148,163,184,.12);
-    }
-    .nav{
-      display:flex; align-items:center; justify-content:space-between;
-      height:72px;
-    }
-    .brand{
-      display:flex; align-items:center; gap:12px;
-      font-weight:800;
-      letter-spacing:.2px;
-    }
-
-    /* image logo (Logiclab.png) */
-    .logo{
-      width:38px; height:38px;
-      border-radius:12px;
-      overflow:hidden;
-      display:block;
-      box-shadow: 0 14px 28px rgba(96,165,250,.18);
-      background: rgba(17,24,39,.55);
-      border: 1px solid rgba(148,163,184,.14);
-      object-fit: cover;
-    }
-
-    .navlinks{display:flex; align-items:center; gap:18px; color:rgba(229,231,235,.9)}
-    .navlinks a{
-      font-weight:600; font-size:14px;
-      padding:10px 12px;
-      border-radius:12px;
-      transition: background .2s ease, color .2s ease;
-    }
-    .navlinks a:hover{background: rgba(148,163,184,.10)}
-    .actions{display:flex; align-items:center; gap:10px}
-    .btn{
-      display:inline-flex; align-items:center; justify-content:center;
-      gap:10px;
-      padding:12px 14px;
-      border-radius:14px;
-      border:1px solid rgba(148,163,184,.18);
-      background: rgba(17,24,39,.55);
-      color:var(--text);
-      font-weight:700;
-      font-size:14px;
-      cursor:pointer;
-      transition: transform .12s ease, box-shadow .2s ease, border-color .2s ease, background .2s ease;
-      user-select:none;
-      -webkit-tap-highlight-color: transparent;
-    }
-    .btn:hover{transform: translateY(-1px); box-shadow: var(--shadow2); border-color: rgba(96,165,250,.35)}
-    .btn:focus{outline:none; box-shadow: 0 0 0 4px var(--ring)}
-    .btn.primary{
-      border-color: rgba(96,165,250,.45);
-      background: linear-gradient(135deg, #2563eb, #7c3aed);
-      color: #ffffff;
-      text-shadow: 0 1px 2px rgba(0,0,0,.25);
-    }
-    .btn.new{
-      border-color: rgba(34,197,94,.45);
-      background: linear-gradient(135deg, #16a34a, #22c55e);
-      color:#04150b;
-      font-weight:800;
-    }
-    .new-badge{
-      display:inline-flex;
-      align-items:center;
-      gap:6px;
-      padding:6px 10px;
-      border-radius:999px;
-      border:1px solid rgba(34,197,94,.45);
-      background: rgba(34,197,94,.14);
-      color: rgba(229,231,235,.98);
-      font-weight:800;
-      font-size:12px;
-      letter-spacing:.2px;
-    }
-    .new-badge::before{
-      content:"";
-      width:8px;
-      height:8px;
-      border-radius:999px;
-      background: var(--ok);
-      box-shadow: 0 0 0 4px rgba(34,197,94,.16);
-    }
-    .hamburger{display:none}
-
-    /* Hero */
-    .hero{padding:72px 0 44px}
-    .hero-copy{
-      max-width:900px;
-      margin:0 auto;
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-      text-align:center;
-    }
-    .kicker{
-      display:inline-flex; align-items:center; gap:10px;
-      padding:8px 12px;
-      border:1px solid rgba(148,163,184,.16);
-      border-radius:999px;
-      background: rgba(17,24,39,.55);
-      color: rgba(229,231,235,.92);
-      font-weight:700;
-      font-size:13px;
-      width:fit-content;
-      margin-bottom:20px;
-    }
-    .dot{
-      width:8px; height:8px; border-radius:999px;
-      background: var(--ok);
-      box-shadow: 0 0 0 4px rgba(34,197,94,.12);
-    }
-    .hero-copy h1{
-      margin:0;
-      font-size: clamp(34px, 4.4vw, 54px);
-      line-height:1.05;
-      letter-spacing: -0.8px;
-      width:100%;
-      max-width:22ch;
-      text-align:center;
-    }
-    .hero-copy .lead{
-      margin:26px 0 0;
-      font-size: 16px;
-      color: rgba(148,163,184,.95);
-      max-width: 68ch;
-      width:100%;
-      text-align:center;
-    }
-    .hero-cta{
-      margin-top:36px;
-      display:flex;
-      flex-wrap:wrap;
-      gap:12px;
-      align-items:center;
-      justify-content:center;
-      width:100%;
-    }
-    .hero-cta .btn{padding:13px 16px}
-    .js .hero-copy h1,
-    .js .hero-copy .lead{
-      visibility:hidden;
-    }
-    .js .hero-copy.typing-started h1{
-      visibility:visible;
-    }
-    .js .hero-copy.lead-typing-started .lead{
-      visibility:visible;
-    }
-    .typing-caret{
-      border-right: 2px solid rgba(229,231,235,.85);
-      padding-right: 2px;
-      animation: caretBlink .9s step-end infinite;
-    }
-    @keyframes caretBlink{
-      0%, 49%{ border-right-color: rgba(229,231,235,.85); }
-      50%, 100%{ border-right-color: transparent; }
-    }
-    .trust{
-      margin-top:30px;
-      display:flex; flex-wrap:wrap; gap:10px;
-      justify-content:center;
-      width:100%;
-      color: rgba(148,163,184,.92);
-      font-weight:650;
-      font-size:13px;
-    }
-    .chip{
-      padding:8px 10px;
-      border:1px solid rgba(148,163,184,.14);
-      border-radius:999px;
-      background: rgba(17,24,39,.45);
-    }
-    /* Sections */
-    section{padding:56px 0}
-    .section-head{display:flex; align-items:flex-end; justify-content:space-between; gap:16px; margin-bottom:18px}
-    .section-head h2{margin:0; font-size: clamp(22px, 3vw, 30px); letter-spacing:-.5px}
-    .section-head p{margin:0; color: rgba(148,163,184,.95); max-width:60ch}
-
-    .grid-3{
-      display:grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap:16px;
-    }
-    .grid-2{display:grid; grid-template-columns: 1fr 1fr; gap:16px}
-
-    .card{
-      border-radius: var(--radius);
-      border:1px solid rgba(148,163,184,.14);
-      background: rgba(17,24,39,.55);
-      box-shadow: var(--shadow2);
-      padding:18px;
-      position:relative;
-      overflow:hidden;
-    }
-    .card:before{
-      content:"";
-      position:absolute; inset:-1px;
-      background: radial-gradient(420px 200px at 10% 0%, rgba(96,165,250,.12), transparent 55%);
-      pointer-events:none;
-    }
-
-    .icon{
-      width:44px; height:44px;
-      border-radius:14px;
-      display:grid; place-items:center;
-      background: rgba(96,165,250,.12);
-      border: 1px solid rgba(96,165,250,.22);
-      margin-bottom:12px;
-    }
-    .icon svg{width:22px; height:22px; fill:none; stroke: rgba(229,231,235,.9); stroke-width:2; stroke-linecap:round; stroke-linejoin:round}
-    .card h3{margin:0 0 8px; font-size:16px; letter-spacing:-.2px}
-    .card p{margin:0; color: rgba(148,163,184,.95); font-size:14px}
-
-    .list{display:grid; gap:10px; margin-top:12px;}
-    .li{
-      display:flex; gap:10px; align-items:flex-start;
-      padding:12px;
-      border-radius: 14px;
-      border:1px solid rgba(148,163,184,.12);
-      background: rgba(11,15,25,.35);
-    }
-    .check{
-      width:22px; height:22px;
-      border-radius: 8px;
-      display:grid; place-items:center;
-      background: rgba(34,197,94,.12);
-      border: 1px solid rgba(34,197,94,.22);
-      flex: 0 0 auto;
-      margin-top:1px;
-    }
-    .check svg{width:14px; height:14px; fill:none; stroke: rgba(229,231,235,.9); stroke-width:2; stroke-linecap:round; stroke-linejoin:round}
-    .li b{display:block; margin-bottom:2px}
-    .li span{color: rgba(148,163,184,.95); font-size:13px}
-
-    /* Tools section */
-    .tools-wrap{
-      border-radius: var(--radius2);
-      border: 1px solid rgba(148,163,184,.16);
-      background:
-        radial-gradient(700px 340px at 10% 0%, rgba(96,165,250,.18), transparent 60%),
-        radial-gradient(700px 340px at 95% 30%, rgba(167,139,250,.16), transparent 60%),
-        rgba(17,24,39,.55);
-      box-shadow: var(--shadow);
-      padding: 22px;
-      overflow:hidden;
-      position:relative;
-    }
-    .tool-card{
-      border-radius: var(--radius2);
-      border: 1px solid rgba(148,163,184,.14);
-      background: rgba(11,15,25,.40);
-      padding: 16px;
-      display:flex;
-      flex-direction:column;
-      gap: 10px;
-      position:relative;
-      overflow:hidden;
-      min-height: 220px;
-    }
-    .tool-card:before{
-      content:"";
-      position:absolute; inset:-1px;
-      background: radial-gradient(480px 220px at 20% 10%, rgba(96,165,250,.12), transparent 60%);
-      pointer-events:none;
-    }
-    .tool-top{
-      display:flex; align-items:flex-start; justify-content:space-between; gap:12px;
-      position:relative; z-index:1;
-    }
-    .tool-ico{
-      width:44px; height:44px;
-      border-radius:14px;
-      display:grid; place-items:center;
-      background: rgba(96,165,250,.12);
-      border: 1px solid rgba(96,165,250,.22);
-      flex: 0 0 auto;
-    }
-    .tool-ico svg{width:22px; height:22px; fill:none; stroke: rgba(229,231,235,.92); stroke-width:2; stroke-linecap:round; stroke-linejoin:round}
-    .tool-title{margin:0; font-size:16px; letter-spacing:-.2px}
-    .tool-desc{margin:0; color: rgba(148,163,184,.95); font-size:14px; position:relative; z-index:1}
-    .tool-meta{
-      display:flex; flex-wrap:wrap; gap:10px;
-      color: rgba(148,163,184,.92);
-      font-weight:700;
-      font-size:13px;
-      position:relative; z-index:1;
-      margin-top: 4px;
-    }
-    .tool-pill{
-      padding:8px 10px;
-      border:1px solid rgba(148,163,184,.14);
-      border-radius:999px;
-      background: rgba(11,15,25,.35);
-    }
-    .tool-actions{
-      display:flex; flex-wrap:wrap; gap:10px;
-      margin-top:auto;
-      position:relative; z-index:1;
-    }
-
-    /* Pricing */
-    .pricing{display:grid; grid-template-columns: repeat(3, 1fr); gap:16px;}
-    .price{
-      padding:18px;
-      border-radius: var(--radius2);
-      border: 1px solid rgba(148,163,184,.14);
-      background: rgba(17,24,39,.55);
-      box-shadow: var(--shadow);
-      position:relative;
-      overflow:hidden;
-    }
-    .price.featured{
-      border-color: rgba(96,165,250,.32);
-      background: linear-gradient(135deg, rgba(96,165,250,.14), rgba(167,139,250,.14));
-    }
-    .badge{
-      position:absolute;
-      top:16px; right:16px;
-      padding:6px 10px;
-      border-radius: 999px;
-      background: rgba(96,165,250,.18);
-      border:1px solid rgba(96,165,250,.26);
-      font-weight:800;
-      font-size:12px;
-      color: rgba(229,231,235,.95);
-    }
-    .price h3{margin:0 0 6px; font-size:16px}
-    .price p{margin:0 0 14px; color: rgba(148,163,184,.95); font-size:13px}
-    .money{display:flex; align-items:baseline; gap:8px; margin:0 0 14px}
-    .money strong{font-size:34px; letter-spacing:-.8px}
-    .money em{font-style:normal; color: rgba(148,163,184,.95); font-weight:700}
-    .divider{height:1px; background: rgba(148,163,184,.12); margin:14px 0}
-
-    /* FAQ */
-    details{
-      border-radius: var(--radius);
-      border:1px solid rgba(148,163,184,.14);
-      background: rgba(17,24,39,.50);
-      box-shadow: var(--shadow2);
-      padding: 14px 16px;
-    }
-    details + details{margin-top:12px}
-    summary{
-      cursor:pointer;
-      list-style:none;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:12px;
-      font-weight:800;
-      letter-spacing:-.2px;
-    }
-    summary::-webkit-details-marker{display:none}
-    .faq-a{
-      margin-top:10px;
-      color: rgba(148,163,184,.95);
-      font-size:14px;
-      line-height:1.55;
-    }
-    .chev{
-      width:32px; height:32px;
-      border-radius:12px;
-      display:grid; place-items:center;
-      border:1px solid rgba(148,163,184,.14);
-      background: rgba(11,15,25,.35);
-      flex:0 0 auto;
-      transition: transform .2s ease;
-    }
-    details[open] .chev{transform: rotate(180deg)}
-
-    /* CTA */
-    .cta{
-      border-radius: var(--radius2);
-      border: 1px solid rgba(148,163,184,.16);
-      background:
-        radial-gradient(700px 340px at 10% 0%, rgba(96,165,250,.20), transparent 60%),
-        radial-gradient(700px 340px at 95% 20%, rgba(167,139,250,.18), transparent 60%),
-        rgba(17,24,39,.55);
-      box-shadow: var(--shadow);
-      padding: 22px;
-      display:flex;
-      gap:18px;
-      align-items:center;
-      justify-content:space-between;
-      flex-wrap:wrap;
-    }
-    .cta h2{margin:0; font-size:22px; letter-spacing:-.4px}
-    .cta p{margin:6px 0 0; color: rgba(148,163,184,.95); max-width:60ch}
-
-    /* Contact modal */
-    .backdrop{position:fixed; inset:0; background: rgba(0,0,0,.55); display:none; align-items:center; justify-content:center; padding: 18px; z-index: 100;}
-    .modal{width:min(560px, 100%); border-radius: var(--radius2); border: 1px solid rgba(148,163,184,.18); background: rgba(11,15,25,.92); box-shadow: var(--shadow); overflow:hidden;}
-    .modal-top{padding:14px 16px; display:flex; align-items:center; justify-content:space-between; border-bottom: 1px solid rgba(148,163,184,.12); background: rgba(17,24,39,.55);}
-    .modal-top b{font-size:14px}
-    .modal-body{padding:16px}
-    form{display:grid; gap:12px;}
-    label{font-weight:700; font-size:13px; color: rgba(229,231,235,.9)}
-    input, textarea, select{width:100%; padding:12px 12px; border-radius: 14px; border: 1px solid rgba(148,163,184,.18); background: rgba(17,24,39,.45); color: var(--text); font-size:14px; outline:none;}
-    input:focus, textarea:focus, select:focus{box-shadow: 0 0 0 4px var(--ring); border-color: rgba(96,165,250,.35)}
-    textarea{min-height:120px; resize:vertical}
-    .modal-actions{display:flex; gap:10px; flex-wrap:wrap}
-
-    /* Mobile menu */
-    .menu-sheet{position:fixed; inset:0; display:none; z-index: 90;}
-    .menu-sheet .shade{position:absolute; inset:0; background: rgba(0,0,0,.55);}
-    .menu-sheet .panel{
-      position:absolute; top:0; right:0; height:100%;
-      width:min(380px, 88vw);
-      border-left: 1px solid rgba(148,163,184,.14);
-      background: rgba(11,15,25,.92);
-      backdrop-filter: blur(12px);
-      padding: 14px;
-      display:flex;
-      flex-direction:column;
-      gap:10px;
-      box-shadow: var(--shadow);
-    }
-    .menu-head{display:flex; align-items:center; justify-content:space-between; padding: 10px 8px; border-bottom: 1px solid rgba(148,163,184,.12);}
-    .menu-links{display:grid; gap:10px; padding: 8px}
-    .menu-links a{padding: 12px 12px; border-radius: 14px; border:1px solid rgba(148,163,184,.12); background: rgba(17,24,39,.40); font-weight:800; color: rgba(229,231,235,.95);}
-    .menu-links a:hover{border-color: rgba(96,165,250,.30)}
-    .menu-actions{display:flex; flex-wrap:wrap; gap:10px; padding: 8px}
-
-    /* Footer */
-    footer{padding:40px 0 46px; color: rgba(148,163,184,.95)}
-    .footer-grid{display:grid; grid-template-columns: 1.2fr .8fr; gap:16px; align-items:start}
-    .small{font-size:13px; color: rgba(148,163,184,.92)}
-    .footlinks{display:flex; gap:12px; flex-wrap:wrap; justify-content:flex-end}
-    .footlinks a{padding:8px 10px; border-radius:12px; border:1px solid rgba(148,163,184,.12); background: rgba(17,24,39,.35)}
-    .note{margin-top:10px; border:1px dashed rgba(148,163,184,.18); border-radius: 14px; padding: 12px 14px; background: rgba(17,24,39,.28); color: rgba(148,163,184,.92); font-size: 13px;}
-
-    /* Mobile */
-    @media (max-width: 920px){
-      .grid-3{grid-template-columns: 1fr;}
-      .grid-2{grid-template-columns: 1fr;}
-      .pricing{grid-template-columns: 1fr;}
-      .section-head{flex-direction:column; align-items:flex-start}
-      .footer-grid{grid-template-columns: 1fr;}
-      .footlinks{justify-content:flex-start}
-    }
-    @media (max-width: 640px){
-      .hero-cta{
-        flex-direction:column;
-        align-items:stretch;
-        max-width: 360px;
-      }
-      .hero-cta .btn{
-        width:100%;
-        justify-content:center;
-      }
-    }
-    @media (max-width: 720px){
-      .navlinks{display:none}
-      .hamburger{display:inline-flex}
-    }
-    @media (prefers-reduced-motion: reduce){
-      *{scroll-behavior:auto !important; transition:none !important; animation:none !important}
-      .typing-caret{border-right:none;}
-    }
-</style>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5622407838304076" crossorigin="anonymous"></script>
+  <meta name="description" content="Logic Lab is a software development studio building fast, reliable web and mobile products for growing businesses."/>
+  <meta property="og:title" content="Logic Lab — Software Development Studio"/>
+  <meta property="og:description" content="We build fast, reliable web and mobile products for growing businesses."/>
+  <meta property="og:type" content="website"/>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="premium-theme.css">
-  <script src="premium-ui.js" defer></script>
+  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@300;400;700;900&family=DM+Mono:ital,wght@0,300;0,400;1,300&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --black:   #050505;
+      --off:     #0d0d0d;
+      --card:    #111111;
+      --border:  #1f1f1f;
+      --border2: #2e2e2e;
+      --white:   #f5f5f0;
+      --off-white: #c8c8c0;
+      --dim:     #6a6a62;
+      --accent:  #f5f5f0; /* white as accent */
+      --max: 1160px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Mono', monospace;
+      font-weight: 300;
+      background: var(--black);
+      color: var(--off-white);
+      line-height: 1.5;
+      overflow-x: hidden;
+      cursor: none;
+    }
+
+    /* ── CURSOR ── */
+    .cursor {
+      position: fixed;
+      width: 12px; height: 12px;
+      background: var(--white);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 9999;
+      transform: translate(-50%,-50%);
+      transition: transform 0.08s ease, width 0.2s ease, height 0.2s ease, background 0.2s ease;
+      mix-blend-mode: difference;
+    }
+    .cursor.hovered { width: 40px; height: 40px; }
+
+    a, button { cursor: none; }
+    a { color: inherit; text-decoration: none; }
+    .container { max-width: var(--max); margin: 0 auto; padding: 0 40px; }
+
+    /* ── TICKER ── */
+    .ticker-wrap {
+      overflow: hidden;
+      border-bottom: 1px solid var(--border);
+      background: var(--black);
+      padding: 10px 0;
+    }
+    .ticker {
+      display: flex;
+      gap: 0;
+      white-space: nowrap;
+      animation: ticker 28s linear infinite;
+    }
+    .ticker-item {
+      font-size: 0.65rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--dim);
+      padding: 0 40px;
+    }
+    .ticker-item span { color: var(--white); margin: 0 8px; }
+    @keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+    /* ── HEADER ── */
+    header {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(5,5,5,0.9);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 40px;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 64px;
+    }
+    .brand {
+      display: flex; align-items: center; gap: 12px;
+      font-family: 'Unbounded', sans-serif;
+      font-weight: 700;
+      font-size: 0.85rem;
+      letter-spacing: 0.05em;
+      color: var(--white);
+    }
+    .logo {
+      width: 32px; height: 32px;
+      border-radius: 8px;
+      object-fit: cover;
+      border: 1px solid var(--border2);
+      filter: grayscale(100%) contrast(1.2);
+    }
+    .navlinks {
+      display: flex; align-items: center; gap: 0;
+    }
+    .navlinks a {
+      font-size: 0.62rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--dim);
+      padding: 8px 16px;
+      transition: color 0.2s;
+    }
+    .navlinks a:hover { color: var(--white); }
+    .nav-actions { display: flex; align-items: center; gap: 12px; }
+    .hamburger { display: none; }
+
+    /* ── BUTTONS ── */
+    .btn {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.68rem;
+      font-weight: 400;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      padding: 11px 22px;
+      border: 1px solid var(--border2);
+      background: transparent;
+      color: var(--off-white);
+      border-radius: 0;
+      transition: background 0.2s, color 0.2s, border-color 0.2s;
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      white-space: nowrap;
+      user-select: none;
+    }
+    .btn:hover { background: var(--white); color: var(--black); border-color: var(--white); }
+    .btn.primary {
+      background: var(--white);
+      color: var(--black);
+      border-color: var(--white);
+    }
+    .btn.primary:hover { background: transparent; color: var(--white); }
+    .btn.sm { padding: 8px 16px; font-size: 0.6rem; }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 92vh;
+      display: grid;
+      grid-template-rows: 1fr auto;
+      border-bottom: 1px solid var(--border);
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* large background text */
+    .hero-bg-text {
+      position: absolute;
+      bottom: -0.15em; left: -0.04em;
+      font-family: 'Unbounded', sans-serif;
+      font-weight: 900;
+      font-size: clamp(10rem, 22vw, 22rem);
+      line-height: 1;
+      color: transparent;
+      -webkit-text-stroke: 1px var(--border2);
+      pointer-events: none;
+      user-select: none;
+      letter-spacing: -0.02em;
+    }
+
+    .hero-content {
+      padding: 120px 40px 60px;
+      max-width: var(--max);
+      margin: 0 auto;
+      width: 100%;
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: end;
+    }
+
+    .hero-left {}
+
+    .hero-label {
+      font-size: 0.6rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--dim);
+      margin-bottom: 32px;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .hero-label::before {
+      content: '';
+      width: 32px; height: 1px;
+      background: var(--dim);
+    }
+
+    .hero h1 {
+      font-family: 'Unbounded', sans-serif;
+      font-weight: 900;
+      font-size: clamp(2.4rem, 5vw, 4.2rem);
+      line-height: 1.0;
+      letter-spacing: -0.03em;
+      color: var(--white);
+      margin-bottom: 0;
+    }
+    .hero h1 em {
+      font-family: 'Instrument Serif', serif;
+      font-style: italic;
+      font-weight: 400;
+      color: var(--off-white);
+    }
+
+    .hero-right {
+      padding-bottom: 8px;
+    }
+    .hero-desc {
+      font-size: 0.85rem;
+      color: var(--dim);
+      line-height: 1.9;
+      margin-bottom: 36px;
+      max-width: 38ch;
+    }
+    .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+
+    .hero-bottom {
+      border-top: 1px solid var(--border);
+      max-width: var(--max);
+      margin: 0 auto;
+      width: 100%;
+      padding: 0 40px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      position: relative;
+      z-index: 2;
+    }
+    .hero-stat {
+      padding: 24px 0;
+      border-right: 1px solid var(--border);
+      padding-left: 24px;
+    }
+    .hero-stat:first-child { padding-left: 0; }
+    .hero-stat:last-child { border-right: none; }
+    .stat-n {
+      font-family: 'Unbounded', sans-serif;
+      font-weight: 700;
+      font-size: 1.6rem;
+      color: var(--white);
+      letter-spacing: -0.03em;
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .stat-l {
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--dim);
+    }
+
+    /* ── SECTION BASE ── */
+    section { padding: 100px 0; border-bottom: 1px solid var(--border); }
+
+    .sec-label {
+      font-size: 0.58rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--dim);
+      margin-bottom: 48px;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .sec-label::before { content: ''; width: 24px; height: 1px; background: var(--border2); }
+    .sec-num { color: var(--border2); }
+
+    .sec-title {
+      font-family: 'Unbounded', sans-serif;
+      font-weight: 700;
+      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+      letter-spacing: -0.04em;
+      color: var(--white);
+      line-height: 1.05;
+    }
+    .sec-title em {
+      font-family: 'Instrument Serif', serif;
+      font-style: italic;
+      font-weight: 400;
+    }
+
+    /* ── SERVICES ── */
+    .services-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+    }
+    .services-left {
+      border-right: 1px solid var(--border);
+      padding-right: 60px;
+    }
+    .services-right { padding-left: 60px; }
+
+    .service-list { margin-top: 48px; }
+    .service-item {
+      border-top: 1px solid var(--border);
+      padding: 28px 0;
+      display: grid;
+      grid-template-columns: 40px 1fr auto;
+      gap: 20px;
+      align-items: start;
+      transition: background 0.15s;
+    }
+    .service-item:last-child { border-bottom: 1px solid var(--border); }
+    .service-num {
+      font-size: 0.6rem;
+      letter-spacing: 0.15em;
+      color: var(--dim);
+      padding-top: 4px;
+    }
+    .service-name {
+      font-family: 'Unbounded', sans-serif;
+      font-weight: 400;
+      font-size: 0.95rem;
+      color: var(--white);
+      letter-spacing: -0.01em;
+      margin-bottom: 8px;
+    }
+    .service-desc { font-size: 0.75rem; color: var(--dim); line-height: 1.7; }
+    .service-arrow {
+      font-size: 1rem;
+      color: var(--border2);
+      transition: color 0.2s, transform 0.2s;
+      padding-top: 2px;
+    }
+    .service-item:hover .service-arrow { color: var(--white); transform: translate(3px,-3px); }
+
+    .what-you-get { margin-top: 48px; }
+    .wyg-item {
+      border-top: 1px solid var(--border);
+      padding: 20px 0;
+      display: grid;
+      grid-template-columns: 18px 1fr;
+      gap: 16px;
+    }
+    .wyg-item:last-child { border-bottom: 1px solid var(--border); }
+    .wyg-check { color: var(--white); font-size: 0.7rem; padding-top: 2px; }
+    .wyg-text b { display: block; font-size: 0.78rem; color: var(--white); margin-bottom: 3px; font-weight: 400; }
+    .wyg-text span { font-size: 0.72rem; color: var(--dim); }
+
+    .tech-wrap { margin-top: 32px; }
+    .tech-title { font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--dim); margin-bottom: 14px; }
+    .tech-chips { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tech-chip {
+      font-size: 0.62rem;
+      letter-spacing: 0.1em;
+      padding: 6px 12px;
+      border: 1px solid var(--border2);
+      color: var(--dim);
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .tech-chip:hover { border-color: var(--white); color: var(--white); }
+
+    /* ── PROCESS ── */
+    .process-list { margin-top: 60px; }
+    .process-step {
+      display: grid;
+      grid-template-columns: 80px 1fr 1fr;
+      gap: 40px;
+      border-top: 1px solid var(--border);
+      padding: 36px 0;
+      align-items: start;
+      transition: background 0.15s;
+    }
+    .process-step:last-child { border-bottom: 1px solid var(--border); }
+    .process-step:hover { background: rgba(255,255,255,0.015); }
+    .ps-num {
+      font-family: 'Unbounded', sans-serif;
+      font-weight: 300;
+      font-size: 2.5rem;
+      color: var(--border2);
+      letter-spacing: -0.04em;
+      line-height: 1;
+    }
+    .ps-name {
+      font-family: 'Unbounded', sans-serif;
+      font-weight: 400;
+      font-size: 1rem;
+      color: var(--white);
+      letter-spacing: -0.02em;
+      padding-top: 6px;
+    }
+    .ps-desc { font-size: 0.75rem; color: var(--dim); line-height: 1.8; padding-top: 6px; }
+
+    /* ── TOOLS ── */
+    .tools-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+      border: 1px solid var(--border);
+      margin-top: 60px;
+    }
+    .tool-cell {
+      border-right: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 32px 28px;
+      display: flex; flex-direction: column; gap: 14px;
+      transition: background 0.2s;
+      position: relative;
+    }
+    .tool-cell:hover { background: var(--card); }
+    .tool-cell:nth-child(3n) { border-right: none; }
+    .tool-cell:nth-last-child(-n+3):nth-child(3n+1),
+    .tool-cell:nth-last-child(-n+3):nth-child(3n+2),
+    .tool-cell:nth-last-child(-n+3) { border-bottom: none; }
+
+    .tool-tag {
+      font-size: 0.55rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--dim);
+    }
+    .tool-tag.new { color: var(--white); }
+    .tool-name {
+      font-family: 'Unbounded', sans-serif;
+      font-weight: 400;
+      font-size: 0.85rem;
+      color: var(--white);
+      letter-spacing: -0.01em;
+      line-height: 1.3;
+    }
+    .tool-desc { font-size: 0.72rem; color: var(--dim); line-height: 1.7; flex: 1; }
+    .tool-pills { display: flex; flex-wrap: wrap; gap: 5px; }
+    .tool-pill {
+      font-size: 0.58rem;
+      letter-spacing: 0.1em;
+      padding: 4px 9px;
+      border: 1px solid var(--border2);
+      color: var(--dim);
+    }
+    .tool-btns { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 4px; }
+
+    /* ── TEMPLATES ── */
+    .templates-grid {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 0;
+      border: 1px solid var(--border);
+      margin-top: 60px;
+    }
+    .tmpl-card {
+      border-right: 1px solid var(--border);
+      overflow: hidden;
+      display: flex; flex-direction: column;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .tmpl-card:last-child { border-right: none; }
+    .tmpl-card:hover { background: var(--card); }
+    .tmpl-thumb {
+      height: 180px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 3rem;
+      border-bottom: 1px solid var(--border);
+      position: relative;
+      overflow: hidden;
+    }
+    .tmpl-thumb.t1 { background: #0a0a0a; }
+    .tmpl-thumb.t2 { background: #080808; }
+    .tmpl-thumb.t3 { background: #0c0c0c; }
+    .tmpl-thumb::after {
+      content: 'VIEW DEMO →';
+      position: absolute;
+      inset: 0;
+      background: var(--white);
+      color: var(--black);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.62rem;
+      letter-spacing: 0.25em;
+      opacity: 0;
+      transition: opacity 0.25s;
+    }
+    .tmpl-card:hover .tmpl-thumb::after { opacity: 1; }
+    .tmpl-body { padding: 24px; }
+    .tmpl-name {
+      font-family: 'Unbounded', sans-serif;
+      font-weight: 400;
+      font-size: 0.8rem;
+      color: var(--white);
+      letter-spacing: -0.01em;
+      margin-bottom: 6px;
+    }
+    .tmpl-desc { font-size: 0.7rem; color: var(--dim); line-height: 1.65; margin-bottom: 12px; }
+    .tmpl-for { font-size: 0.6rem; letter-spacing: 0.1em; color: var(--dim); text-transform: uppercase; }
+    .tmpl-for b { color: var(--off-white); font-weight: 400; }
+
+    /* ── PRICING ── */
+    .pricing-wrap {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 0;
+      border: 1px solid var(--border);
+      margin-top: 60px;
+    }
+    .price-col {
+      border-right: 1px solid var(--border);
+      padding: 36px 32px;
+      display: flex; flex-direction: column;
+      transition: background 0.2s;
+      position: relative;
+    }
+    .price-col:last-child { border-right: none; }
+    .price-col.featured {
+      background: var(--white);
+      color: var(--black);
+    }
+    .price-col.featured .price-name,
+    .price-col.featured .price-amount strong,
+    .price-col.featured .price-desc,
+    .price-col.featured .wyg-text b,
+    .price-col.featured .wyg-item { color: var(--black); border-color: rgba(0,0,0,0.12); }
+    .price-col.featured .wyg-text span,
+    .price-col.featured .price-sub,
+    .price-col.featured .price-amount em { color: rgba(0,0,0,0.5); }
+    .price-col.featured .wyg-check { color: var(--black); }
+    .price-col.featured .btn {
+      background: var(--black);
+      color: var(--white);
+      border-color: var(--black);
+    }
+    .price-col.featured .btn:hover { background: transparent; color: var(--black); border-color: var(--black); }
+    .price-col.featured .popular-mark {
+      font-size: 0.55rem; letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: rgba(0,0,0,0.4);
+      margin-bottom: 16px;
+    }
+    .popular-mark { font-size: 0.55rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--dim); margin-bottom: 16px; height: 16px; }
+    .price-name {
+      font-family: 'Unbounded', sans-serif;
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: var(--white);
+      letter-spacing: -0.02em;
+      margin-bottom: 8px;
+    }
+    .price-desc { font-size: 0.72rem; color: var(--dim); line-height: 1.65; margin-bottom: 24px; }
+    .price-amount { display: flex; align-items: baseline; gap: 8px; margin-bottom: 4px; }
+    .price-amount strong {
+      font-family: 'Unbounded', sans-serif;
+      font-weight: 700;
+      font-size: 2.2rem;
+      color: var(--white);
+      letter-spacing: -0.04em;
+    }
+    .price-amount em { font-style: normal; font-size: 0.7rem; color: var(--dim); }
+    .price-sub { font-size: 0.65rem; color: var(--dim); margin-bottom: 28px; }
+    .price-divider { height: 1px; background: var(--border); margin: 20px 0; }
+    .price-col.featured .price-divider { background: rgba(0,0,0,0.12); }
+    .price-checklist { flex: 1; margin-bottom: 28px; }
+    .price-col .btn { width: 100%; justify-content: center; margin-top: auto; }
+
+    /* ── FAQ ── */
+    .faq-list { margin-top: 60px; }
+    details {
+      border-top: 1px solid var(--border);
+    }
+    details:last-child { border-bottom: 1px solid var(--border); }
+    summary {
+      padding: 24px 0;
+      display: flex; align-items: center; justify-content: space-between; gap: 24px;
+      cursor: none;
+      list-style: none;
+      font-family: 'Unbounded', sans-serif;
+      font-weight: 400;
+      font-size: 0.85rem;
+      color: var(--off-white);
+      letter-spacing: -0.02em;
+      user-select: none;
+      transition: color 0.2s;
+    }
+    summary:hover { color: var(--white); }
+    summary::-webkit-details-marker { display: none; }
+    .faq-icon {
+      width: 28px; height: 28px; flex-shrink: 0;
+      border: 1px solid var(--border2);
+      display: grid; place-items: center;
+      font-size: 1rem;
+      color: var(--dim);
+      transition: all 0.25s;
+      font-family: 'DM Mono', monospace;
+      font-weight: 300;
+    }
+    details[open] summary .faq-icon {
+      background: var(--white);
+      color: var(--black);
+      border-color: var(--white);
+      transform: rotate(45deg);
+    }
+    .faq-body {
+      padding: 0 0 28px 0;
+      font-size: 0.78rem;
+      color: var(--dim);
+      line-height: 1.85;
+      max-width: 70ch;
+    }
+
+    /* ── CTA STRIP ── */
+    .cta-strip {
+      background: var(--white);
+      padding: 80px 40px;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 32px; flex-wrap: wrap;
+    }
+    .cta-strip h2 {
+      font-family: 'Unbounded', sans-serif;
+      font-weight: 700;
+      font-size: clamp(1.4rem, 3vw, 2.2rem);
+      color: var(--black);
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+    }
+    .cta-strip h2 em {
+      font-family: 'Instrument Serif', serif;
+      font-style: italic;
+      font-weight: 400;
+    }
+    .cta-strip p { font-size: 0.78rem; color: rgba(0,0,0,0.45); margin-top: 8px; }
+    .cta-btns { display: flex; gap: 12px; flex-wrap: wrap; }
+    .cta-btns .btn {
+      background: var(--black);
+      color: var(--white);
+      border-color: var(--black);
+    }
+    .cta-btns .btn:hover { background: transparent; color: var(--black); }
+    .cta-btns .btn.outline {
+      background: transparent;
+      color: var(--black);
+      border-color: rgba(0,0,0,0.25);
+    }
+    .cta-btns .btn.outline:hover { background: var(--black); color: var(--white); border-color: var(--black); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--off);
+      border-top: 1px solid var(--border);
+    }
+    .footer-top {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 64px 40px 48px;
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr;
+      gap: 60px;
+    }
+    .footer-brand-name {
+      font-family: 'Unbounded', sans-serif;
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--white);
+      letter-spacing: -0.02em;
+      display: flex; align-items: center; gap: 10px;
+      margin-bottom: 14px;
+    }
+    .footer-tagline { font-size: 0.72rem; color: var(--dim); line-height: 1.75; margin-bottom: 20px; }
+    .footer-contact {
+      font-size: 0.7rem; color: var(--dim);
+      border: 1px solid var(--border);
+      padding: 14px 16px;
+      line-height: 1.8;
+    }
+    .footer-contact a { color: var(--off-white); transition: color 0.2s; }
+    .footer-contact a:hover { color: var(--white); }
+    .footer-col-title {
+      font-size: 0.58rem; letter-spacing: 0.25em; text-transform: uppercase;
+      color: var(--dim); margin-bottom: 18px;
+    }
+    .footer-links { display: flex; flex-direction: column; gap: 10px; }
+    .footer-links a { font-size: 0.75rem; color: var(--dim); transition: color 0.2s; }
+    .footer-links a:hover { color: var(--white); }
+    .footer-bottom {
+      max-width: var(--max); margin: 0 auto;
+      padding: 18px 40px;
+      border-top: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 12px;
+    }
+    .footer-bottom span { font-size: 0.62rem; color: var(--dim); letter-spacing: 0.1em; }
+
+    /* ── MODAL ── */
+    .backdrop {
+      position: fixed; inset: 0;
+      background: rgba(0,0,0,0.85);
+      backdrop-filter: blur(12px);
+      display: none; align-items: center; justify-content: center;
+      padding: 20px; z-index: 500;
+    }
+    .modal {
+      background: var(--card);
+      border: 1px solid var(--border2);
+      width: 100%; max-width: 500px;
+      max-height: 90vh; overflow-y: auto;
+      padding: 36px;
+    }
+    .modal-head {
+      display: flex; align-items: center; justify-content: space-between;
+      margin-bottom: 28px;
+    }
+    .modal-head b {
+      font-family: 'Unbounded', sans-serif;
+      font-weight: 700; font-size: 0.9rem;
+      color: var(--white); letter-spacing: -0.02em;
+    }
+    .modal label {
+      display: block; font-size: 0.6rem;
+      letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--dim); margin-bottom: 8px;
+    }
+    .modal input, .modal select, .modal textarea {
+      width: 100%;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--border2);
+      padding: 11px 14px;
+      color: var(--off-white);
+      font-family: 'DM Mono', monospace;
+      font-size: 0.78rem;
+      outline: none;
+      transition: border-color 0.2s;
+      margin-bottom: 16px;
+      border-radius: 0;
+    }
+    .modal input:focus, .modal select:focus, .modal textarea:focus { border-color: var(--white); }
+    .modal textarea { min-height: 96px; resize: vertical; }
+    .modal select { appearance: none; }
+    .modal-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .modal-actions { display: flex; gap: 10px; margin-top: 4px; }
+    .modal-actions .btn { flex: 1; }
+    .modal-note {
+      margin-top: 14px; font-size: 0.65rem;
+      letter-spacing: 0.05em; color: var(--dim);
+      border-top: 1px solid var(--border);
+      padding-top: 14px;
+    }
+
+    /* ── MOBILE MENU ── */
+    .menu-sheet { display: none; position: fixed; inset: 0; z-index: 400; }
+    .menu-sheet.open { display: block; }
+    .menu-shade { position: absolute; inset: 0; background: rgba(0,0,0,0.7); backdrop-filter: blur(6px); }
+    .menu-panel {
+      position: absolute; top: 0; right: 0; bottom: 0;
+      width: min(300px, 88vw);
+      background: var(--card);
+      border-left: 1px solid var(--border2);
+      padding: 28px 24px;
+      display: flex; flex-direction: column;
+      overflow-y: auto;
+    }
+    .menu-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 28px; }
+    .menu-top b { font-family: 'Unbounded', sans-serif; font-size: 0.8rem; color: var(--white); font-weight: 700; }
+    .menu-links { display: flex; flex-direction: column; gap: 2px; margin-bottom: 24px; }
+    .menu-links a { padding: 12px 0; font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--dim); border-bottom: 1px solid var(--border); transition: color 0.2s; }
+    .menu-links a:hover { color: var(--white); }
+    .menu-actions { display: flex; flex-direction: column; gap: 10px; }
+    .menu-actions .btn { justify-content: center; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 960px) {
+      .hero-content { grid-template-columns: 1fr; gap: 40px; }
+      .hero-bottom { grid-template-columns: repeat(2,1fr); }
+      .services-layout { grid-template-columns: 1fr; }
+      .services-left { border-right: none; padding-right: 0; border-bottom: 1px solid var(--border); padding-bottom: 60px; margin-bottom: 60px; }
+      .services-right { padding-left: 0; }
+      .process-step { grid-template-columns: 60px 1fr; }
+      .ps-desc { grid-column: 2; margin-top: -16px; }
+      .tools-grid, .templates-grid, .pricing-wrap { grid-template-columns: 1fr; }
+      .tool-cell { border-right: none; }
+      .tool-cell:nth-last-child(-n+3) { border-bottom: 1px solid var(--border); }
+      .tmpl-card { border-right: none; border-bottom: 1px solid var(--border); }
+      .price-col { border-right: none; border-bottom: 1px solid var(--border); }
+      .footer-top { grid-template-columns: 1fr; gap: 40px; }
+      .cta-strip { flex-direction: column; align-items: flex-start; padding: 60px 24px; }
+    }
+    @media (max-width: 720px) {
+      .navlinks { display: none; }
+      .hamburger { display: inline-flex; }
+      .container, .nav, .hero-content, .hero-bottom, .footer-top, .footer-bottom { padding-left: 20px; padding-right: 20px; }
+      .hero-content { padding-top: 80px; }
+      .hero-bottom { grid-template-columns: 1fr 1fr; }
+      body { cursor: auto; }
+      .cursor { display: none; }
+      a, button { cursor: auto; }
+    }
+    @media (max-width: 480px) {
+      .modal { padding: 24px 18px; }
+      .modal-grid { grid-template-columns: 1fr; }
+      .hero-bottom { grid-template-columns: 1fr 1fr; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { transition: none !important; animation: none !important; }
+    }
+
+    /* ── REVEAL ANIMATIONS ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .reveal.visible { opacity: 1; transform: none; }
+  </style>
 </head>
-
 <body>
-  <header>
-    <div class="container">
-      <div class="nav">
-        <a class="brand" href="#top" aria-label="Logic Lab">
-          <img class="logo" src="Logiclab.png" alt="Logic Lab logo" />
-          <span>Logic Lab</span>
-        </a>
 
-        <nav class="navlinks" aria-label="Primary">
+<!-- Custom cursor -->
+<div class="cursor" id="cursor"></div>
+
+<!-- TICKER -->
+<div class="ticker-wrap" aria-hidden="true">
+  <div class="ticker">
+    <span class="ticker-item">Logic Lab Studio<span>—</span></span>
+    <span class="ticker-item">Web Apps<span>—</span></span>
+    <span class="ticker-item">Mobile Apps<span>—</span></span>
+    <span class="ticker-item">APIs & Integrations<span>—</span></span>
+    <span class="ticker-item">South Africa<span>—</span></span>
+    <span class="ticker-item">Fast Delivery<span>—</span></span>
+    <span class="ticker-item">Clear Pricing<span>—</span></span>
+    <span class="ticker-item">Logic Lab Studio<span>—</span></span>
+    <span class="ticker-item">Web Apps<span>—</span></span>
+    <span class="ticker-item">Mobile Apps<span>—</span></span>
+    <span class="ticker-item">APIs & Integrations<span>—</span></span>
+    <span class="ticker-item">South Africa<span>—</span></span>
+    <span class="ticker-item">Fast Delivery<span>—</span></span>
+    <span class="ticker-item">Clear Pricing<span>—</span></span>
+  </div>
+</div>
+
+<!-- HEADER -->
+<header>
+  <div class="nav">
+    <a class="brand" href="#top" aria-label="Logic Lab">
+      <img class="logo" src="Logiclab.png" alt="Logic Lab logo"/>
+      Logic Lab
+    </a>
+    <nav class="navlinks" aria-label="Primary">
+      <a href="#services">Services</a>
+      <a href="#process">Process</a>
+      <a href="#tools">Tools</a>
+      <a href="#templates">Templates</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <div class="nav-actions">
+      <a class="btn primary sm" href="https://wa.me/27623881570" target="_blank" rel="noreferrer">Get a quote</a>
+      <button class="btn sm hamburger" id="menuBtn" type="button" aria-label="Open menu">Menu</button>
+    </div>
+  </div>
+</header>
+
+<!-- MOBILE MENU -->
+<div class="menu-sheet" id="menuSheet" aria-hidden="true">
+  <div class="menu-shade" id="menuShade"></div>
+  <div class="menu-panel">
+    <div class="menu-top">
+      <b>Menu</b>
+      <button class="btn sm" id="menuClose" type="button">✕ Close</button>
+    </div>
+    <div class="menu-links">
+      <a href="#services" class="m-link">Services</a>
+      <a href="#process" class="m-link">Process</a>
+      <a href="#tools" class="m-link">Tools</a>
+      <a href="#templates" class="m-link">Templates</a>
+      <a href="#pricing" class="m-link">Pricing</a>
+      <a href="#faq" class="m-link">FAQ</a>
+    </div>
+    <div class="menu-actions">
+      <a class="btn primary" href="https://wa.me/27623881570" target="_blank" rel="noreferrer">WhatsApp us</a>
+      <button class="btn" type="button" id="openContactMenu">Start a project</button>
+    </div>
+  </div>
+</div>
+
+<main id="top">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-bg-text" aria-hidden="true">LAB</div>
+    <div class="hero-content">
+      <div class="hero-left">
+        <div class="hero-label">Software Development Studio</div>
+        <h1>
+          Build products<br>
+          that feel<br>
+          <em>premium.</em>
+        </h1>
+      </div>
+      <div class="hero-right">
+        <p class="hero-desc">
+          Logic Lab is a studio for founders and businesses that need quality.
+          We design, build, and ship web apps, mobile apps, and APIs — with speed and precision.
+        </p>
+        <div class="hero-actions">
+          <button class="btn primary" type="button" id="openContact1">Start a project</button>
+          <a class="btn" href="#services">Our services</a>
+        </div>
+      </div>
+    </div>
+    <div class="hero-bottom">
+      <div class="hero-stat">
+        <div class="stat-n">Web</div>
+        <div class="stat-l">Apps & platforms</div>
+      </div>
+      <div class="hero-stat">
+        <div class="stat-n">Mobile</div>
+        <div class="stat-l">iOS & Android</div>
+      </div>
+      <div class="hero-stat">
+        <div class="stat-n">APIs</div>
+        <div class="stat-l">Integrations</div>
+      </div>
+      <div class="hero-stat">
+        <div class="stat-n">ZA</div>
+        <div class="stat-l">Based in South Africa</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SERVICES -->
+  <section id="services">
+    <div class="container">
+      <div class="sec-label"><span class="sec-num">01</span> Services</div>
+      <div class="services-layout">
+        <div class="services-left">
+          <h2 class="sec-title">What we<br><em>build.</em></h2>
+          <div class="service-list">
+            <div class="service-item">
+              <div class="service-num">01</div>
+              <div>
+                <div class="service-name">Web Applications</div>
+                <div class="service-desc">Dashboards, SaaS platforms, portals, eCommerce, admin systems — built for speed and clarity.</div>
+              </div>
+              <div class="service-arrow">↗</div>
+            </div>
+            <div class="service-item">
+              <div class="service-num">02</div>
+              <div>
+                <div class="service-name">Mobile Apps</div>
+                <div class="service-desc">React Native apps that feel native. Auth, payments, push notifications, offline support.</div>
+              </div>
+              <div class="service-arrow">↗</div>
+            </div>
+            <div class="service-item">
+              <div class="service-num">03</div>
+              <div>
+                <div class="service-name">APIs & Integrations</div>
+                <div class="service-desc">Secure APIs, third-party integrations, automations, and data pipelines that don't break.</div>
+              </div>
+              <div class="service-arrow">↗</div>
+            </div>
+          </div>
+        </div>
+        <div class="services-right">
+          <h2 class="sec-title">What you<br><em>get.</em></h2>
+          <div class="what-you-get">
+            <div class="wyg-item">
+              <div class="wyg-check">✓</div>
+              <div class="wyg-text"><b>Production-ready builds</b><span>Clean code, documented handover, and smooth deployment.</span></div>
+            </div>
+            <div class="wyg-item">
+              <div class="wyg-check">✓</div>
+              <div class="wyg-text"><b>Strong UX</b><span>Simple flows that convert users and reduce support.</span></div>
+            </div>
+            <div class="wyg-item">
+              <div class="wyg-check">✓</div>
+              <div class="wyg-text"><b>Security basics done right</b><span>Auth, validation, rate limits, and safe data handling.</span></div>
+            </div>
+          </div>
+          <div class="tech-wrap">
+            <div class="tech-title">Stack</div>
+            <div class="tech-chips">
+              <span class="tech-chip">Next.js</span>
+              <span class="tech-chip">React</span>
+              <span class="tech-chip">Node.js</span>
+              <span class="tech-chip">.NET</span>
+              <span class="tech-chip">PostgreSQL</span>
+              <span class="tech-chip">MongoDB</span>
+              <span class="tech-chip">Firebase</span>
+              <span class="tech-chip">AWS</span>
+              <span class="tech-chip">Azure</span>
+              <span class="tech-chip">CI/CD</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section id="process">
+    <div class="container">
+      <div class="sec-label"><span class="sec-num">02</span> Process</div>
+      <h2 class="sec-title">How we<br><em>work.</em></h2>
+      <div class="process-list">
+        <div class="process-step">
+          <div class="ps-num">01</div>
+          <div class="ps-name">Scope + Plan</div>
+          <div class="ps-desc">We turn your idea into a lean plan: core features, timelines, milestones, and risks. No bloat, no guesswork.</div>
+        </div>
+        <div class="process-step">
+          <div class="ps-num">02</div>
+          <div class="ps-name">Build in Sprints</div>
+          <div class="ps-desc">Weekly delivery with demos. You approve direction early — no surprises at the end. Progress you can see.</div>
+        </div>
+        <div class="process-step">
+          <div class="ps-num">03</div>
+          <div class="ps-name">Launch + Support</div>
+          <div class="ps-desc">Deployment, monitoring, and small improvements so the product stays healthy. We don't disappear after launch.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TOOLS -->
+  <section id="tools">
+    <div class="container">
+      <div class="sec-label"><span class="sec-num">03</span> Free Tools</div>
+      <h2 class="sec-title">Built by us,<br><em>free for you.</em></h2>
+      <div class="tools-grid">
+
+        <div class="tool-cell">
+          <div class="tool-tag">Free · Instant</div>
+          <div class="tool-name">QR Code Generator</div>
+          <div class="tool-desc">Turn any link into a clean "SCAN ME" code for WhatsApp, Google Maps, menus, websites, and payment links.</div>
+          <div class="tool-pills">
+            <span class="tool-pill">📞 WhatsApp</span>
+            <span class="tool-pill">📍 Maps</span>
+            <span class="tool-pill">🖨️ Print-ready</span>
+          </div>
+          <div class="tool-btns">
+            <a class="btn sm primary" href="qr-code.html">Open tool</a>
+            <a class="btn sm" href="#templates">See examples</a>
+          </div>
+        </div>
+
+        <div class="tool-cell">
+          <div class="tool-tag">Design · Export</div>
+          <div class="tool-name">Flyer Maker</div>
+          <div class="tool-desc">Create clean flyers fast. Perfect for promos, events, price lists, and social posts — then export and share.</div>
+          <div class="tool-pills">
+            <span class="tool-pill">📅 Events</span>
+            <span class="tool-pill">📲 Social</span>
+            <span class="tool-pill">⚡ Fast</span>
+          </div>
+          <div class="tool-btns">
+            <a class="btn sm primary" href="FlyerMaker.html">Open tool</a>
+            <a class="btn sm" href="https://wa.me/27623881570?text=Hi%20Logic%20Lab%2C%20I%20need%20flyer%20design%20help." target="_blank" rel="noreferrer">Get help</a>
+          </div>
+        </div>
+
+        <div class="tool-cell">
+          <div class="tool-tag">Free · Print-ready</div>
+          <div class="tool-name">Invoice Generator</div>
+          <div class="tool-desc">Professional invoices in seconds. Auto-calculate totals, tax, discounts. Export clean A4 PDFs — no signup needed.</div>
+          <div class="tool-pills">
+            <span class="tool-pill">💰 Auto totals</span>
+            <span class="tool-pill">🖨️ PDF</span>
+            <span class="tool-pill">📦 Offline</span>
+          </div>
+          <div class="tool-btns">
+            <a class="btn sm primary" href="InvoiceGenerator.html">Open tool</a>
+          </div>
+        </div>
+
+        <div class="tool-cell">
+          <div class="tool-tag">Free · Branding</div>
+          <div class="tool-name">Business Card Generator</div>
+          <div class="tool-desc">Design front and back cards, customize colors, add QR/vCard, and export print-ready PNG sheets.</div>
+          <div class="tool-pills">
+            <span class="tool-pill">🎨 Front + Back</span>
+            <span class="tool-pill">📇 vCard</span>
+            <span class="tool-pill">🖨️ Print Sheet</span>
+          </div>
+          <div class="tool-btns">
+            <a class="btn sm primary" href="BusinessCard/BusinessCardGen.html">Open tool</a>
+          </div>
+        </div>
+
+        <div class="tool-cell">
+          <div class="tool-tag new">★ New</div>
+          <div class="tool-name">CV Generator</div>
+          <div class="tool-desc">ATS-friendly CV with live preview, quality suggestions, JSON save/load, and one-click PDF export.</div>
+          <div class="tool-pills">
+            <span class="tool-pill">ATS-friendly</span>
+            <span class="tool-pill">Live preview</span>
+            <span class="tool-pill">Quality score</span>
+          </div>
+          <div class="tool-btns">
+            <a class="btn sm primary" href="CV Gen.html">Open tool</a>
+          </div>
+        </div>
+
+        <div class="tool-cell">
+          <div class="tool-tag new">★ New</div>
+          <div class="tool-name">Whiteboard Pro</div>
+          <div class="tool-desc">Infinite canvas with smart zoom, draggable objects, editable arrows, grouping, templates. Local-first.</div>
+          <div class="tool-pills">
+            <span class="tool-pill">Infinite canvas</span>
+            <span class="tool-pill">Flow diagrams</span>
+            <span class="tool-pill">PNG export</span>
+          </div>
+          <div class="tool-btns">
+            <a class="btn sm primary" href="whiteboard 2.html">Open tool</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- TEMPLATES -->
+  <section id="templates">
+    <div class="container">
+      <div style="display:flex; align-items:flex-end; justify-content:space-between; flex-wrap:wrap; gap:20px">
+        <div>
+          <div class="sec-label"><span class="sec-num">04</span> Templates</div>
+          <h2 class="sec-title">Ready to<br><em>launch.</em></h2>
+        </div>
+        <button class="btn" type="button" id="openContact3">Start a project →</button>
+      </div>
+      <div class="templates-grid">
+        <a class="tmpl-card" href="Modern Saloon/Modern Saloon.html">
+          <div class="tmpl-thumb t1">💇</div>
+          <div class="tmpl-body">
+            <div class="tmpl-name">Modern Salon</div>
+            <div class="tmpl-desc">Clean, high-end salon layout with services, bookings, and WhatsApp link.</div>
+            <div class="tmpl-for">Best for: <b>Hair salons, beauty studios, nail bars</b></div>
+          </div>
+        </a>
+        <a class="tmpl-card" href="Bar/bar.html">
+          <div class="tmpl-thumb t2">🍸</div>
+          <div class="tmpl-body">
+            <div class="tmpl-name">Premium Bar & Lounge</div>
+            <div class="tmpl-desc">Dark, stylish bar design with menu, events, and reservations.</div>
+            <div class="tmpl-for">Best for: <b>Bars, lounges, rooftop venues</b></div>
+          </div>
+        </a>
+        <a class="tmpl-card" href="Landing Page/Landingpage.html">
+          <div class="tmpl-thumb t3">🚀</div>
+          <div class="tmpl-body">
+            <div class="tmpl-name">Simple Landing Page</div>
+            <div class="tmpl-desc">One-page site for new venues with WhatsApp, hours, and directions.</div>
+            <div class="tmpl-for">Best for: <b>New businesses, pop-ups, small teams</b></div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section id="pricing">
+    <div class="container">
+      <div style="display:flex; align-items:flex-end; justify-content:space-between; flex-wrap:wrap; gap:20px; margin-bottom:0">
+        <div>
+          <div class="sec-label"><span class="sec-num">05</span> Pricing</div>
+          <h2 class="sec-title">Clear prices,<br><em>no surprises.</em></h2>
+        </div>
+        <button class="btn" type="button" id="openContactPricing">Ask a question</button>
+      </div>
+
+      <div class="pricing-wrap">
+        <div class="price-col">
+          <div class="popular-mark">&nbsp;</div>
+          <div class="price-name">Starter</div>
+          <div class="price-desc">One-page site or simple landing page with WhatsApp/email contact + basic hosting.</div>
+          <div class="price-amount"><strong>R1,500</strong><em>deposit</em></div>
+          <div class="price-sub">+ R800 / month hosting & maintenance</div>
+          <div class="price-divider"></div>
+          <div class="price-checklist">
+            <div class="wyg-item">
+              <div class="wyg-check">✓</div>
+              <div class="wyg-text"><b>Modern design</b><span>Mobile-first, fast loading.</span></div>
+            </div>
+            <div class="wyg-item">
+              <div class="wyg-check">✓</div>
+              <div class="wyg-text"><b>Basic SEO</b><span>Metadata + performance best practices.</span></div>
+            </div>
+            <div class="wyg-item">
+              <div class="wyg-check">✓</div>
+              <div class="wyg-text"><b>Hosting included</b><span>Secure, monitored, and backed up.</span></div>
+            </div>
+          </div>
+          <button class="btn" type="button" data-plan="Starter" style="width:100%; justify-content:center">Choose Starter</button>
+        </div>
+
+        <div class="price-col featured">
+          <div class="popular-mark">Most popular</div>
+          <div class="price-name">Business</div>
+          <div class="price-desc">Multi-page site + CMS content, analytics, and lead capture.</div>
+          <div class="price-amount"><strong>R3,300</strong><em>deposit</em></div>
+          <div class="price-sub">+ R800 / month hosting & maintenance</div>
+          <div class="price-divider"></div>
+          <div class="price-checklist">
+            <div class="wyg-item">
+              <div class="wyg-check">✓</div>
+              <div class="wyg-text"><b>Pages + sections</b><span>Services, About, Contact, FAQs.</span></div>
+            </div>
+            <div class="wyg-item">
+              <div class="wyg-check">✓</div>
+              <div class="wyg-text"><b>Lead capture</b><span>Forms + WhatsApp + email routing.</span></div>
+            </div>
+            <div class="wyg-item">
+              <div class="wyg-check">✓</div>
+              <div class="wyg-text"><b>Deployment</b><span>Live hosting setup + backups.</span></div>
+            </div>
+          </div>
+          <button class="btn" type="button" data-plan="Business" style="width:100%; justify-content:center">Choose Business</button>
+        </div>
+
+        <div class="price-col">
+          <div class="popular-mark">&nbsp;</div>
+          <div class="price-name">Product</div>
+          <div class="price-desc">MVP web app or mobile app with auth, database, and admin panel.</div>
+          <div class="price-amount"><strong>R4,700</strong><em>monthly</em></div>
+          <div class="price-sub">&nbsp;</div>
+          <div class="price-divider"></div>
+          <div class="price-checklist">
+            <div class="wyg-item">
+              <div class="wyg-check">✓</div>
+              <div class="wyg-text"><b>Auth + database</b><span>Login, roles, and clean data models.</span></div>
+            </div>
+            <div class="wyg-item">
+              <div class="wyg-check">✓</div>
+              <div class="wyg-text"><b>Admin panel</b><span>Manage users, content, orders, or inventory.</span></div>
+            </div>
+            <div class="wyg-item">
+              <div class="wyg-check">✓</div>
+              <div class="wyg-text"><b>Launch-ready</b><span>Deployment, analytics, and stability checks.</span></div>
+            </div>
+          </div>
+          <button class="btn" type="button" data-plan="Product" style="width:100%; justify-content:center">Choose Product</button>
+        </div>
+      </div>
+
+      <div style="margin-top:16px; font-size:0.68rem; color:var(--dim); border-top:1px solid var(--border); padding-top:16px; letter-spacing:0.05em;">
+        Note: Domain costs are separate — you own your domain. Hosting/maintenance covers updates, uptime monitoring, small fixes, and keeping things healthy.
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq">
+    <div class="container">
+      <div style="display:flex; align-items:flex-end; justify-content:space-between; flex-wrap:wrap; gap:20px">
+        <div>
+          <div class="sec-label"><span class="sec-num">06</span> FAQ</div>
+          <h2 class="sec-title">Questions<br><em>answered.</em></h2>
+        </div>
+        <button class="btn primary" type="button" id="openContactFaq">Start a project</button>
+      </div>
+      <div class="faq-list">
+        <details>
+          <summary>How long does a website take? <span class="faq-icon">+</span></summary>
+          <div class="faq-body">Starter pages can be 2–5 days if content is ready. Business sites are usually 1–2 weeks. Product/MVP depends on scope, but we ship in weekly sprints with demos so you see progress throughout.</div>
+        </details>
+        <details>
+          <summary>What do you need from me to start? <span class="faq-icon">+</span></summary>
+          <div class="faq-body">Business name, services, contact details, logo (if you have one), and examples of sites you like. If you don't have content ready, we can help structure it for you.</div>
+        </details>
+        <details>
+          <summary>Do you do SEO? <span class="faq-icon">+</span></summary>
+          <div class="faq-body">Yes — we handle the technical basics: metadata, clean structure, speed, and mobile optimization. Full SEO strategy and content is a bigger engagement, but we can quote that separately.</div>
+        </details>
+        <details>
+          <summary>Can you connect payments, booking, or WhatsApp? <span class="faq-icon">+</span></summary>
+          <div class="faq-body">Yes. WhatsApp CTAs are quick to set up. Bookings and payments depend on the provider you choose — PayFast, Peach Payments, Yoco links, etc. We integrate and test them all.</div>
+        </details>
+        <details>
+          <summary>Who owns the website and domain? <span class="faq-icon">+</span></summary>
+          <div class="faq-body">You own your domain and all content. We deliver your site files and can host/maintain it for you, or hand everything over if you'd rather manage it yourself.</div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA STRIP -->
+  <div class="cta-strip">
+    <div style="max-width:var(--max); margin:0 auto; width:100%; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:32px;">
+      <div>
+        <h2>Ready to build something<br><em>that works?</em></h2>
+        <p>Send what you need. We'll reply with a clear plan, timeline, and price.</p>
+      </div>
+      <div class="cta-btns">
+        <button class="btn" type="button" id="openContact2">Start a project</button>
+        <a class="btn outline" href="https://wa.me/27623881570" target="_blank" rel="noreferrer">WhatsApp now</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-top">
+      <div>
+        <div class="footer-brand-name">
+          <img class="logo" src="Logiclab.png" alt="Logic Lab logo"/>
+          Logic Lab
+        </div>
+        <div class="footer-tagline">We build fast, reliable websites and software.<br>Based in South Africa. Remote-friendly.</div>
+        <div class="footer-contact">
+          <b style="color:var(--off-white)">Quick contact</b><br>
+          WhatsApp: <a href="https://wa.me/27623881570" target="_blank" rel="noreferrer">+27 62 388 1570</a><br>
+          Email: <a href="mailto:mosamokgesi@gmail.com">mosamokgesi@gmail.com</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Navigation</div>
+        <div class="footer-links">
           <a href="#services">Services</a>
           <a href="#process">Process</a>
           <a href="#tools">Tools</a>
           <a href="#templates">Templates</a>
           <a href="#pricing">Pricing</a>
           <a href="#faq">FAQ</a>
-        </nav>
-
-        <div class="actions">
-          <a class="btn primary" href="https://wa.me/27623881570" target="_blank" rel="noreferrer">Get a quote</a>
-          <button class="btn hamburger" id="menuBtn" type="button" aria-label="Open menu">Menu</button>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Free Tools</div>
+        <div class="footer-links">
+          <a href="qr-code.html">QR Code Generator</a>
+          <a href="FlyerMaker.html">Flyer Maker</a>
+          <a href="InvoiceGenerator.html">Invoice Generator</a>
+          <a href="BusinessCard/BusinessCardGen.html">Business Card Generator</a>
+          <a href="CV Gen.html">CV Generator</a>
+          <a href="whiteboard 2.html">Whiteboard Pro</a>
         </div>
       </div>
     </div>
-  </header>
-
-  <!-- Mobile menu -->
-  <div class="menu-sheet" id="menuSheet" aria-hidden="true">
-    <div class="shade" id="menuShade" aria-hidden="true"></div>
-    <div class="panel" role="dialog" aria-label="Menu" aria-modal="true">
-      <div class="menu-head">
-        <b>Menu</b>
-        <button class="btn" id="menuClose" type="button">Close</button>
-      </div>
-
-      <div class="menu-links" aria-label="Menu links">
-        <a href="#services" class="m-link">Services</a>
-        <a href="#process" class="m-link">Process</a>
-        <a href="#tools" class="m-link">Logic Lab Tools</a>
-        <a href="#templates" class="m-link">Templates</a>
-        <a href="#pricing" class="m-link">Pricing</a>
-        <a href="#faq" class="m-link">FAQ</a>
-      </div>
-
-      <div class="menu-actions">
-        <a class="btn primary" href="https://wa.me/27623881570" target="_blank" rel="noreferrer">WhatsApp</a>
-        <button class="btn" type="button" id="openContactMenu">Start a project</button>
-      </div>
-
-      <div class="note">
-        Tip: Pick a package and hit <b>Choose</b> — the message will be prefilled for speed.
-      </div>
+    <div class="footer-bottom">
+      <span>© <span id="year"></span> Logic Lab. All rights reserved.</span>
+      <span>Software Development Studio — South Africa</span>
     </div>
-  </div>
+  </footer>
 
-  <main id="top">
-    <div class="container">
-      <section class="hero">
-        <div class="hero-copy">
-          <h1>Build products that feel premium, and work reliably.</h1>
-          <p class="lead">
-            Logic Lab is a software development studio for founders and businesses that need quality.
-            We design, build, and ship web apps, mobile apps, and APIs with speed.
-          </p>
+</main>
 
-          <div class="hero-cta">
-            <a class="btn primary" href="#pricing">See packages</a>
-            <a class="btn new" href="CV Gen.html">NEW: CV Generator</a>
-            <a class="btn" href="#tools">Explore tools</a>
-            <button class="btn" type="button" id="openContact1">Talk to us</button>
-          </div>
-
-          <div class="trust" aria-label="Highlights">
-            <span class="chip">⚡ Fast delivery</span>
-            <span class="chip">🔒 Secure by default</span>
-            <span class="chip">📈 Built to scale</span>
-            <span class="chip">🧾 Clear pricing</span>
-          </div>
-        </div>
-      </section>
-
-      <section id="services">
-        <div class="section-head">
-          <div>
-            <h2>Services</h2>
-            <p>Pick what you need. We can deliver end-to-end or plug into your existing team.</p>
-          </div>
-          <a class="btn" href="#pricing">Get pricing</a>
-        </div>
-
-        <div class="grid-3">
-          <div class="card">
-            <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h10M4 17h16"/></svg></div>
-            <h3>Web apps</h3>
-            <p>Dashboards, SaaS platforms, portals, eCommerce, admin systems — built for speed and clarity.</p>
-          </div>
-          <div class="card">
-            <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 18h.01"/><path d="M7 4h10a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Z"/></svg></div>
-            <h3>Mobile apps</h3>
-            <p>React Native apps that feel native. Auth, payments, push notifications, offline support.</p>
-          </div>
-          <div class="card">
-            <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3v18"/><path d="M7 8l-3 4 3 4"/><path d="M17 8l3 4-3 4"/></svg></div>
-            <h3>APIs & integrations</h3>
-            <p>Secure APIs, third-party integrations, automations, and data pipelines that don’t break.</p>
-          </div>
-        </div>
-
-        <div class="grid-2" style="margin-top:16px">
-          <div class="card">
-            <h3>What you get</h3>
-            <div class="list">
-              <div class="li"><span class="check" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></span><div><b>Production-ready builds</b><span>Clean code, documented handover, and smooth deployment.</span></div></div>
-              <div class="li"><span class="check" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></span><div><b>Strong UX</b><span>Simple flows that convert users and reduce support.</span></div></div>
-              <div class="li"><span class="check" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></span><div><b>Security basics done right</b><span>Auth, validation, rate limits, and safe data handling.</span></div></div>
-            </div>
-          </div>
-          <div class="card">
-            <h3>Tech we’re strong in</h3>
-            <p>We pick tools that match your budget and timelines — no over-engineering.</p>
-            <div class="trust" style="margin-top:12px">
-              <span class="chip">Next.js / React</span>
-              <span class="chip">Node.js</span>
-              <span class="chip">.NET</span>
-              <span class="chip">PostgreSQL</span>
-              <span class="chip">MongoDB</span>
-              <span class="chip">Firebase</span>
-              <span class="chip">AWS / Azure</span>
-              <span class="chip">CI/CD</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="process">
-        <div class="section-head">
-          <div>
-            <h2>Process</h2>
-            <p>A simple delivery system that keeps scope controlled and progress visible.</p>
-          </div>
-        </div>
-
-        <div class="grid-3">
-          <div class="card">
-            <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M21 15a4 4 0 0 1-4 4H7l-4 3V7a4 4 0 0 1 4-4h8"/><path d="M16 3h5v5"/><path d="M21 3l-7 7"/></svg></div>
-            <h3>1) Scope + plan</h3>
-            <p>We turn your idea into a lean plan: core features, timelines, milestones, and risks.</p>
-          </div>
-          <div class="card">
-            <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 12h18"/><path d="M7 12v8"/><path d="M17 12v8"/><path d="M5 4h14v6H5z"/></svg></div>
-            <h3>2) Build in sprints</h3>
-            <p>Weekly delivery with demos. You approve direction early — no surprises at the end.</p>
-          </div>
-          <div class="card">
-            <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4.2L18.5 21 12 16.8 5.5 21 7.5 13.2 2 9h7z"/></svg></div>
-            <h3>3) Launch + support</h3>
-            <p>Deployment, monitoring, and small improvements so the product stays healthy.</p>
-          </div>
-        </div>
-      </section>
-
-      <section id="tools">
-        <div class="section-head">
-          <div>
-            <h2>Logic Lab Tools</h2>
-            <p>Free, practical tools built by Logic Lab — made for marketing, visibility, and fast content creation.</p>
-          </div>
-          <a class="btn" href="https://wa.me/27623881570?text=Hi%20Logic%20Lab%20%E2%9C%8B%0A%0AI%20want%20a%20custom%20tool%20for%20my%20business.%20Can%20we%20talk%3F" target="_blank" rel="noreferrer">Request a custom tool</a>
-        </div>
-
-        <div class="tools-wrap">
-          <div class="grid-2">
-<div class="tool-card">
-  <div class="tool-top">
-                <div class="tool-ico" aria-hidden="true">
-                  <svg viewBox="0 0 24 24">
-                    <path d="M4 4h6v6H4z"/><path d="M14 4h6v6h-6z"/><path d="M4 14h6v6H4z"/>
-                    <path d="M14 14h2v2h-2z"/><path d="M18 14h2v6h-6v-2"/>
-                  </svg>
-                </div>
-                <span class="tag">Free • Instant</span>
-              </div>
-
-              <h3 class="tool-title">QR Code Generator</h3>
-              <p class="tool-desc">Turn a link into a clean “SCAN ME” code for WhatsApp, Google Maps, menus, websites, payment links, and more.</p>
-
-              <div class="tool-meta" aria-label="QR tool highlights">
-                <span class="tool-pill">📞 WhatsApp</span>
-                <span class="tool-pill">📍 Maps</span>
-                <span class="tool-pill">🌐 Websites</span>
-                <span class="tool-pill">🖨️ Print-ready</span>
-              </div>
-
-              <div class="tool-actions">
-                <a class="btn primary" href="qr-code.html">Open QR Generator</a>
-                <a class="btn" href="#templates">See examples</a>
-              </div>
-            </div>
-
-            <div class="tool-card">
-              <div class="tool-top">
-                <div class="tool-ico" aria-hidden="true">
-                  <svg viewBox="0 0 24 24">
-                    <path d="M6 2h9l3 3v17a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2Z"/>
-                    <path d="M15 2v4h4"/>
-                    <path d="M7 10h10"/><path d="M7 14h10"/><path d="M7 18h7"/>
-                  </svg>
-                </div>
-                <span class="tag">Design • Export</span>
-              </div>
-
-              <h3 class="tool-title">Flyer Maker</h3>
-              <p class="tool-desc">Create clean flyers fast. Perfect for promos, events, price lists, and social posts — then export and share.</p>
-
-              <div class="tool-meta" aria-label="Flyer tool highlights">
-                <span class="tool-pill">🧾 Promotions</span>
-                <span class="tool-pill">📅 Events</span>
-                <span class="tool-pill">📲 Social media</span>
-                <span class="tool-pill">⚡ Fast creation</span>
-              </div>
-
-              <div class="tool-actions">
-                <a class="btn primary" href="FlyerMaker.html">Open Flyer Maker</a>
-                <a class="btn" href="https://wa.me/27623881570?text=Hi%20Logic%20Lab%20%E2%9C%8B%0A%0AI%20need%20a%20flyer%20design%20help.%20Here%E2%80%99s%20my%20business%20and%20what%20I%20want%3A%0A" target="_blank" rel="noreferrer">Need design help</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="divider"></div>
-          <div class="small"><b>Tip:</b> Put your QR code directly on flyers you create — it turns paper into a clickable button.</div>
-        </div>
-
-        <div class="tool-card">
-  <div class="tool-top">
-    <div class="tool-ico" aria-hidden="true">
-      <svg viewBox="0 0 24 24">
-        <path d="M6 2h9l3 3v17a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z"/>
-        <path d="M15 2v4h4"/>
-        <path d="M8 10h8"/>
-        <path d="M8 14h8"/>
-        <path d="M8 18h5"/>
-      </svg>
+<!-- CONTACT MODAL -->
+<div class="backdrop" id="backdrop" aria-hidden="true">
+  <div class="modal" role="dialog" aria-modal="true" aria-label="Contact Logic Lab">
+    <div class="modal-head">
+      <b>Start a project</b>
+      <button class="btn sm" id="closeModal" type="button">✕ Close</button>
     </div>
-    <span class="tag">Free • Print-ready</span>
-  </div>
-
-  <h3 class="tool-title">Invoice Generator</h3>
-  <p class="tool-desc">
-    Create professional invoices in seconds. Auto-calculate totals, tax, discounts,
-    and export clean A4 PDFs — no signup, fully local.
-  </p>
-
-  <div class="tool-meta" aria-label="Invoice tool highlights">
-    <span class="tool-pill">🧾 Invoices</span>
-    <span class="tool-pill">💰 Auto totals</span>
-    <span class="tool-pill">🖨️ PDF / Print</span>
-    <span class="tool-pill">📦 Offline</span>
-  </div>
-
-  <div class="tool-actions">
-    <a class="btn primary" href="InvoiceGenerator.html">Open Invoice Generator</a>
-    <a class="btn" href="#pricing">Need customization?</a>
+    <form id="contactForm">
+      <div class="modal-grid">
+        <div>
+          <label for="name">Your name</label>
+          <input id="name" name="name" type="text" placeholder="e.g. Timmy" autocomplete="name" required/>
+        </div>
+        <div>
+          <label for="phone">Phone / WhatsApp</label>
+          <input id="phone" name="phone" type="tel" placeholder="e.g. 062 388 1570" autocomplete="tel"/>
+        </div>
+      </div>
+      <div class="modal-grid">
+        <div>
+          <label for="email">Email (optional)</label>
+          <input id="email" name="email" type="email" placeholder="you@email.com" autocomplete="email"/>
+        </div>
+        <div>
+          <label for="plan">Package</label>
+          <select id="plan" name="plan">
+            <option value="Not sure yet">Not sure yet</option>
+            <option value="Starter">Starter</option>
+            <option value="Business">Business</option>
+            <option value="Product">Product</option>
+          </select>
+        </div>
+      </div>
+      <div>
+        <label for="message">What do you need built?</label>
+        <textarea id="message" name="message" placeholder="Your business name + what the site or app must do."></textarea>
+      </div>
+      <div class="modal-actions">
+        <button class="btn primary" type="submit">Send on WhatsApp</button>
+        <button class="btn" type="button" id="sendEmailBtn">Send by Email</button>
+      </div>
+      <div class="modal-note">We reply fast. If you choose a package, we'll use it as the starting point and refine scope from there.</div>
+    </form>
   </div>
 </div>
 
-<div class="tool-card" style="margin-top:16px;">
-  <div class="tool-top">
-    <div class="tool-ico" aria-hidden="true">
-      <svg viewBox="0 0 24 24">
-        <path d="M3 7h18v10H3z"/>
-        <path d="M7 11h7"/>
-        <path d="M7 14h5"/>
-        <path d="M16 10h3v4h-3z"/>
-      </svg>
-    </div>
-    <span class="tag">Free • Branding</span>
-  </div>
+<script>
+  // Year
+  document.getElementById('year').textContent = new Date().getFullYear();
+  const $ = id => document.getElementById(id);
 
-  <h3 class="tool-title">Business Card Generator</h3>
-  <p class="tool-desc">
-    Design front and back business cards, customize colors, add QR/vCard, and export print-ready PNG sheets.
-  </p>
+  // Cursor
+  const cursor = $('cursor');
+  if (cursor) {
+    document.addEventListener('mousemove', e => {
+      cursor.style.left = e.clientX + 'px';
+      cursor.style.top = e.clientY + 'px';
+    });
+    document.querySelectorAll('a, button, [data-plan], details summary').forEach(el => {
+      el.addEventListener('mouseenter', () => cursor.classList.add('hovered'));
+      el.addEventListener('mouseleave', () => cursor.classList.remove('hovered'));
+    });
+  }
 
-  <div class="tool-meta" aria-label="Business card tool highlights">
-    <span class="tool-pill">🎨 Front + Back</span>
-    <span class="tool-pill">📇 vCard Export</span>
-    <span class="tool-pill">🖨️ Print Sheet</span>
-    <span class="tool-pill">⚡ Fast Setup</span>
-  </div>
-
-  <div class="tool-actions">
-    <a class="btn primary" href="BusinessCard/BusinessCardGen.html">Open Business Card Generator</a>
-    <a class="btn" href="#pricing">Need customization?</a>
-  </div>
-</div>
-
-<div class="tool-card" style="margin-top:16px;">
-  <div class="tool-top">
-    <div class="tool-ico" aria-hidden="true">
-      <svg viewBox="0 0 24 24">
-        <path d="M6 2h9l3 3v17a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z"/>
-        <path d="M15 2v4h4"/>
-        <path d="M8 10h8"/>
-        <path d="M8 14h8"/>
-        <path d="M8 18h6"/>
-      </svg>
-    </div>
-    <span class="new-badge">NEW</span>
-  </div>
-
-  <h3 class="tool-title">CV Generator</h3>
-  <p class="tool-desc">
-    Build a clean, ATS-friendly CV with live preview, quality suggestions, JSON save/load, and one-click Print to PDF export.
-  </p>
-
-  <div class="tool-meta" aria-label="CV generator tool highlights">
-    <span class="tool-pill">ATS-friendly</span>
-    <span class="tool-pill">Live preview</span>
-    <span class="tool-pill">Quality score</span>
-    <span class="tool-pill">Print to PDF</span>
-  </div>
-
-  <div class="tool-actions">
-    <a class="btn new" href="CV Gen.html">Try New CV Generator</a>
-    <a class="btn" href="#templates">See examples</a>
-  </div>
-</div>
-
-<div class="tool-card" style="margin-top:16px;">
-  <div class="tool-top">
-    <div class="tool-ico" aria-hidden="true">
-      <svg viewBox="0 0 24 24">
-        <path d="M4 5h16v14H4z"/>
-        <path d="M8 9h8"/>
-        <path d="M8 13h5"/>
-        <path d="M14 13h2"/>
-        <path d="M8 17h3"/>
-      </svg>
-    </div>
-    <span class="new-badge">NEW</span>
-  </div>
-
-  <h3 class="tool-title">Whiteboard Pro</h3>
-  <p class="tool-desc">
-    Infinite canvas whiteboard with smart zoom, draggable objects, editable arrows, grouping, templates, and local-first workflow tools.
-  </p>
-
-  <div class="tool-meta" aria-label="Whiteboard tool highlights">
-    <span class="tool-pill">Infinite canvas</span>
-    <span class="tool-pill">Smart zoom</span>
-    <span class="tool-pill">Flow diagrams</span>
-    <span class="tool-pill">PNG / JSON export</span>
-  </div>
-
-  <div class="tool-actions">
-    <a class="btn new" href="whiteboard 2.html">Open Whiteboard Pro</a>
-    <a class="btn" href="#pricing">Need customization?</a>
-  </div>
-</div>
-
-
-      </section>
-
-      <section id="templates">
-        <div class="section-head">
-          <div>
-            <h2>Website Templates</h2>
-            <p>Ready-made templates you can launch fast. Click any card to view a live demo.</p>
-          </div>
-          <button class="btn" type="button" id="openContact3">Start a project</button>
-        </div>
-
-        <div class="grid-3">
-          <a class="card" href="Modern Saloon/Modern Saloon.html">
-            <h3>Modern Salon</h3>
-            <p>Clean, high-end salon layout with services, bookings, and WhatsApp link.</p>
-            <div class="divider"></div>
-            <p class="small"><b>Best for:</b> Hair salons, beauty studios, nail bars.</p>
-          </a>
-
-          <a class="card" href="Bar/bar.html">
-            <h3>Premium Bar & Lounge</h3>
-            <p>Dark, stylish bar design with menu, events, and reservations.</p>
-            <div class="divider"></div>
-            <p class="small"><b>Best for:</b> Bars, lounges, rooftop venues.</p>
-          </a>
-
-          <a class="card" href="Landing Page/Landingpage.html">
-            <h3>Simple Landing Page</h3>
-            <p>One-page site for new venues with WhatsApp, hours, and directions.</p>
-            <div class="divider"></div>
-            <p class="small"><b>Best for:</b> New businesses, pop-ups, small teams.</p>
-          </a>
-
-        </div>
-
-        <div class="divider"></div>
-
-        <div class="card" style="display:flex; align-items:center; justify-content:space-between; gap:14px; flex-wrap:wrap">
-          <div>
-            <h3 style="margin:0 0 6px">Want your tools integrated into a custom website?</h3>
-            <p style="margin:0; color: rgba(148,163,184,.95)">We can build a “Tools” area on your site with custom branding, analytics, and lead capture.</p>
-          </div>
-          <a class="btn primary" href="#tools">Explore Tools</a>
-        </div>
-      </section>
-
-      <section id="pricing">
-        <div class="section-head">
-          <div>
-            <h2>Pricing</h2>
-            <p>Clear packages. Custom quotes available for bigger builds.</p>
-          </div>
-          <button class="btn" type="button" id="openContactPricing">Ask a question</button>
-        </div>
-
-        <div class="pricing">
-          <div class="price">
-            <h3>Starter</h3>
-            <p>One-page site or simple landing page with WhatsApp/email contact + basic hosting.</p>
-            <div class="money"><strong>R1,500</strong><em>deposit</em></div>
-            <div class="small" style="margin:6px 0 10px">+ R800 / month hosting & maintenance</div>
-            <div class="divider"></div>
-            <div class="list">
-              <div class="li"><span class="check" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></span><div><b>Modern design</b><span>Mobile-first, fast loading.</span></div></div>
-              <div class="li"><span class="check" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></span><div><b>Basic SEO</b><span>Metadata + performance best practices.</span></div></div>
-              <div class="li"><span class="check" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></span><div><b>Hosting included</b><span>Secure, monitored, and backed up.</span></div></div>
-            </div>
-            <div class="divider"></div>
-            <button class="btn primary" type="button" data-plan="Starter">Choose Starter</button>
-          </div>
-
-          <div class="price featured">
-            <span class="badge">Most popular</span>
-            <h3>Business</h3>
-            <p>Multi-page site + basic CMS content, analytics, and lead capture.</p>
-            <div class="money"><strong>R3,300</strong><em>deposit</em></div>
-            <div class="small" style="margin:6px 0 10px">+ 800 / month hosting & maintenance</div>
-            <div class="divider"></div>
-            <div class="list">
-              <div class="li"><span class="check" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></span><div><b>Pages + sections</b><span>Services, About, Contact, FAQs.</span></div></div>
-              <div class="li"><span class="check" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></span><div><b>Lead capture</b><span>Forms + WhatsApp + email routing.</span></div></div>
-              <div class="li"><span class="check" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></span><div><b>Deployment</b><span>Live hosting setup + backups.</span></div></div>
-            </div>
-            <div class="divider"></div>
-            <button class="btn primary" type="button" data-plan="Business">Choose Business</button>
-          </div>
-
-          <div class="price">
-            <h3>Product</h3>
-            <p>MVP web app or mobile app with auth, database, and admin panel.</p>
-            <div class="money"><strong>R4,700</strong><em>monthly</em></div>
-            <div class="divider"></div>
-            <div class="list">
-              <div class="li"><span class="check" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></span><div><b>Auth + database</b><span>Login, roles, and clean data models.</span></div></div>
-              <div class="li"><span class="check" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></span><div><b>Admin panel</b><span>Manage users, content, orders, or inventory.</span></div></div>
-              <div class="li"><span class="check" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></span><div><b>Launch-ready</b><span>Deployment, analytics, and stability checks.</span></div></div>
-            </div>
-            <div class="divider"></div>
-            <button class="btn primary" type="button" data-plan="Product">Choose Product</button>
-          </div>
-        </div>
-
-        <div class="note" style="margin-top:16px">
-          <b>Note:</b> Domain costs are separate (you own the domain). Hosting/maintenance covers updates, uptime monitoring, small fixes, and keeping things healthy.
-        </div>
-      </section>
-
-      <section id="faq">
-        <div class="section-head">
-          <div>
-            <h2>FAQ</h2>
-            <p>Quick answers. If you want a straight quote, hit “Start a project”.</p>
-          </div>
-          <button class="btn primary" type="button" id="openContactFaq">Start a project</button>
-        </div>
-
-        <details>
-          <summary>
-            How long does a website take?
-            <span class="chev" aria-hidden="true">
-              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="rgba(229,231,235,.9)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M6 9l6 6 6-6"/>
-              </svg>
-            </span>
-          </summary>
-          <div class="faq-a">Starter pages can be 2–5 days if content is ready. Business sites are usually 1–2 weeks. Product/MVP depends on scope, but we ship in weekly sprints with demos.</div>
-        </details>
-
-        <details>
-          <summary>
-            What do you need from me to start?
-            <span class="chev" aria-hidden="true">
-              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="rgba(229,231,235,.9)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M6 9l6 6 6-6"/>
-              </svg>
-            </span>
-          </summary>
-          <div class="faq-a">Business name, services, contact details, logo (if you have), and examples of websites you like. If you don’t have content, we can help structure it.</div>
-        </details>
-
-        <details>
-          <summary>
-            Do you do SEO?
-            <span class="chev" aria-hidden="true">
-              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="rgba(229,231,235,.9)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M6 9l6 6 6-6"/>
-              </svg>
-            </span>
-          </summary>
-          <div class="faq-a">Yes — we do the technical basics (metadata, structure, speed, mobile). Full SEO strategy/content is a bigger project, but we can quote it.</div>
-        </details>
-
-        <details>
-          <summary>
-            Can you connect payments / booking / WhatsApp?
-            <span class="chev" aria-hidden="true">
-              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="rgba(229,231,235,.9)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M6 9l6 6 6-6"/>
-              </svg>
-            </span>
-          </summary>
-          <div class="faq-a">Yes. WhatsApp CTAs are quick. Bookings and payments depend on the provider you choose (PayFast, Peach Payments, Yoco links, etc.). We integrate and test.</div>
-        </details>
-
-        <details>
-          <summary>
-            Who owns the website and domain?
-            <span class="chev" aria-hidden="true">
-              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="rgba(229,231,235,.9)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M6 9l6 6 6-6"/>
-              </svg>
-            </span>
-          </summary>
-          <div class="faq-a">You own your domain and content. We deliver your site files and can host/maintain it for you, or hand over if you want to manage it yourself.</div>
-        </details>
-      </section>
-
-      <section>
-        <div class="cta">
-          <div>
-            <h2>Ready to launch something clean and fast?</h2>
-            <p>Send what you need. We’ll reply with a clear plan, timeline, and price.</p>
-          </div>
-          <div class="hero-cta">
-            <button class="btn primary" type="button" id="openContact2">Start a project</button>
-            <a class="btn" href="https://wa.me/27623881570" target="_blank" rel="noreferrer">WhatsApp now</a>
-          </div>
-        </div>
-      </section>
-
-      <footer>
-        <div class="footer-grid">
-          <div>
-            <div class="brand" style="gap:10px">
-              <img class="logo" src="Logiclab.png" alt="Logic Lab logo" />
-              <span>Logic Lab</span>
-            </div>
-            <p class="small" style="margin:10px 0 0">We build fast, reliable websites and software. Based in South Africa. Remote-friendly.</p>
-            <div class="note">
-              <b>Quick contact:</b>
-              <span> WhatsApp </span>
-              <a href="https://wa.me/27623881570" target="_blank" rel="noreferrer" style="text-decoration:underline">+27 62 388 1570</a>
-              <span> • Email </span>
-              <a href="mailto:mosamokgesi@gmail.com" style="text-decoration:underline">mosamokgesi@gmail.com</a>
-            </div>
-          </div>
-
-          <div class="footlinks" aria-label="Footer links">
-            <a href="#services">Services</a>
-            <a href="#process">Process</a>
-            <a href="#tools">Tools</a>
-            <a href="#templates">Templates</a>
-            <a href="#pricing">Pricing</a>
-            <a href="#faq">FAQ</a>
-          </div>
-        </div>
-
-        <div class="divider"></div>
-        <div class="small">© <span id="year"></span> Logic Lab. All rights reserved.</div>
-      </footer>
-    </div>
-  </main>
-
-  <!-- Contact Modal -->
-  <div class="backdrop" id="backdrop" aria-hidden="true">
-    <div class="modal" role="dialog" aria-modal="true" aria-label="Contact Logic Lab">
-      <div class="modal-top">
-        <b>Start a project</b>
-        <button class="btn" id="closeModal" type="button" aria-label="Close">Close</button>
-      </div>
-
-      <div class="modal-body">
-        <form id="contactForm">
-          <div class="grid-2" style="gap:12px">
-            <div>
-              <label for="name">Your name</label>
-              <input id="name" name="name" type="text" placeholder="e.g. Timmy" autocomplete="name" required />
-            </div>
-            <div>
-              <label for="phone">Phone / WhatsApp</label>
-              <input id="phone" name="phone" type="tel" placeholder="e.g. 062 388 1570" autocomplete="tel" />
-            </div>
-          </div>
-
-          <div class="grid-2" style="gap:12px">
-            <div>
-              <label for="email">Email (optional)</label>
-              <input id="email" name="email" type="email" placeholder="you@email.com" autocomplete="email" />
-            </div>
-            <div>
-              <label for="plan">Package</label>
-              <select id="plan" name="plan">
-                <option value="Not sure yet">Not sure yet</option>
-                <option value="Starter">Starter</option>
-                <option value="Business">Business</option>
-                <option value="Product">Product</option>
-              </select>
-            </div>
-          </div>
-
-          <div>
-            <label for="message">What do you need built?</label>
-            <textarea id="message" name="message" placeholder="Tell us what you want + any links/examples."></textarea>
-            <div class="small" style="margin-top:8px">Tip: Add your business name + what the site/app must do.</div>
-          </div>
-
-          <div class="modal-actions">
-            <button class="btn primary" type="submit">Send on WhatsApp</button>
-            <button class="btn" type="button" id="sendEmailBtn">Send by Email</button>
-          </div>
-
-          <div class="note">We reply fast. If you choose a package, we’ll use it as the starting point and refine scope from there.</div>
-        </form>
-      </div>
-    </div>
-  </div>
-
-  <script>
-    // Year
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    // Helpers
-    const $ = (id) => document.getElementById(id);
-    const backdrop = $('backdrop');
-    const closeModalBtn = $('closeModal');
-    const form = $('contactForm');
-    const planSelect = $('plan');
-
-    function openModal(plan = 'Not sure yet'){
-      backdrop.style.display = 'flex';
-      backdrop.setAttribute('aria-hidden', 'false');
-      document.body.style.overflow = 'hidden';
-
-      // Prefill plan
-      const options = Array.from(planSelect.options).map(o => o.value);
-      planSelect.value = options.includes(plan) ? plan : 'Not sure yet';
-
-      // Light prefill message when plan chosen
-      const msg = $('message');
-      if (plan && plan !== 'Not sure yet' && !msg.value.trim()){
-        msg.value =
-          `I'm interested in the ${plan} package.\n\n` +
-          `Business name:\n` +
-          `What I need:\n` +
-          `Examples/links (if any):\n` +
-          `Deadline (if any):\n`;
-      }
-
-      setTimeout(() => $('name').focus(), 0);
+  // Modal
+  const backdrop = $('backdrop');
+  const planSelect = $('plan');
+  function openModal(plan = 'Not sure yet') {
+    backdrop.style.display = 'flex';
+    backdrop.setAttribute('aria-hidden','false');
+    document.body.style.overflow = 'hidden';
+    const opts = Array.from(planSelect.options).map(o => o.value);
+    planSelect.value = opts.includes(plan) ? plan : 'Not sure yet';
+    const msg = $('message');
+    if (plan && plan !== 'Not sure yet' && !msg.value.trim()) {
+      msg.value = `I'm interested in the ${plan} package.\n\nBusiness name:\nWhat I need:\nExamples/links (if any):\nDeadline (if any):\n`;
     }
+    setTimeout(() => $('name').focus(), 0);
+  }
+  function closeModal() {
+    backdrop.style.display = 'none';
+    backdrop.setAttribute('aria-hidden','true');
+    document.body.style.overflow = '';
+  }
+  ['openContact1','openContact2','openContact3','openContactFaq','openContactPricing','openContactMenu'].forEach(id => {
+    const el = $(id); if (el) el.addEventListener('click', () => openModal());
+  });
+  document.querySelectorAll('button[data-plan]').forEach(btn => {
+    btn.addEventListener('click', () => openModal(btn.dataset.plan || 'Not sure yet'));
+  });
+  $('closeModal').addEventListener('click', closeModal);
+  backdrop.addEventListener('click', e => { if (e.target === backdrop) closeModal(); });
 
-    function closeModal(){
-      backdrop.style.display = 'none';
-      backdrop.setAttribute('aria-hidden', 'true');
-      document.body.style.overflow = '';
-    }
+  // Email
+  $('sendEmailBtn').addEventListener('click', () => {
+    const n=$('name').value.trim(), p=$('phone').value.trim(), e=$('email').value.trim(), pl=$('plan').value, m=$('message').value.trim();
+    const sub=`Logic Lab enquiry (${pl})`;
+    const body=`Name: ${n}\n${p?`Phone: ${p}\n`:''}${e?`Email: ${e}\n`:''}Package: ${pl}\n\nDetails:\n${m||'(please ask)'}`;
+    window.location.href=`mailto:logiclabstudio@outlook.com?subject=${encodeURIComponent(sub)}&body=${encodeURIComponent(body)}`;
+  });
 
-    // Open modal buttons
-    ['openContact1','openContact2','openContact3','openContactFaq','openContactPricing','openContactMenu'].forEach(id=>{
-      const el = $(id);
-      if (el) el.addEventListener('click', ()=> openModal('Not sure yet'));
+  // WhatsApp submit
+  $('contactForm').addEventListener('submit', e => {
+    e.preventDefault();
+    const n=$('name').value.trim(), p=$('phone').value.trim(), em=$('email').value.trim(), pl=$('plan').value, m=$('message').value.trim();
+    const txt=`Hi Logic Lab 👋\n\nName: ${n}\n${p?`Phone: ${p}\n`:''}${em?`Email: ${em}\n`:''}Package: ${pl}\n\n${m?`Details:\n${m}`:'Details:\n(please ask me what you need)'}`;
+    window.open(`https://wa.me/27623881570?text=${encodeURIComponent(txt)}`, '_blank','noopener,noreferrer');
+    closeModal();
+  });
+
+  // Mobile menu
+  const menuSheet = $('menuSheet');
+  function openMenu() { menuSheet.classList.add('open'); menuSheet.setAttribute('aria-hidden','false'); document.body.style.overflow='hidden'; }
+  function closeMenu() { menuSheet.classList.remove('open'); menuSheet.setAttribute('aria-hidden','true'); document.body.style.overflow=''; }
+  $('menuBtn').addEventListener('click', openMenu);
+  $('menuShade').addEventListener('click', closeMenu);
+  $('menuClose').addEventListener('click', closeMenu);
+  document.querySelectorAll('.m-link').forEach(a => a.addEventListener('click', closeMenu));
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') { closeModal(); closeMenu(); }
+  });
+
+  // Smooth scroll
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const t = document.querySelector(a.getAttribute('href'));
+      if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
     });
+  });
 
-    // Choose plan buttons
-    document.querySelectorAll('button[data-plan]').forEach(btn=>{
-      btn.addEventListener('click', ()=>{
-        const plan = btn.getAttribute('data-plan') || 'Not sure yet';
-        openModal(plan);
-      });
-    });
-
-    // Close modal actions
-    closeModalBtn.addEventListener('click', closeModal);
-    backdrop.addEventListener('click', (e)=>{
-      if (e.target === backdrop) closeModal();
-    });
-
-    // Email send
-    $('sendEmailBtn').addEventListener('click', ()=>{
-      const name = $('name').value.trim();
-      const phone = $('phone').value.trim();
-      const email = $('email').value.trim();
-      const plan = $('plan').value;
-      const message = $('message').value.trim();
-
-      const subject = `Logic Lab project enquiry (${plan})`;
-      const body =
-        `Name: ${name}\n` +
-        (phone ? `Phone: ${phone}\n` : ``) +
-        (email ? `Email: ${email}\n` : ``) +
-        `Package: ${plan}\n\n` +
-        `Details:\n${message || '(please ask me what you need)'}\n`;
-
-      window.location.href = `mailto:logiclabstudio@outlook.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    });
-
-    // WhatsApp send (form submit)
-    form.addEventListener('submit', (e)=>{
-      e.preventDefault();
-      const name = $('name').value.trim();
-      const phone = $('phone').value.trim();
-      const email = $('email').value.trim();
-      const plan = $('plan').value;
-      const message = $('message').value.trim();
-
-      const text =
-        `Hi Logic Lab 👋\n\n` +
-        `Name: ${name}\n` +
-        (phone ? `Phone: ${phone}\n` : ``) +
-        (email ? `Email: ${email}\n` : ``) +
-        `Package: ${plan}\n\n` +
-        (message ? `Details:\n${message}\n` : `Details:\n(please ask me what you need)\n`);
-
-      const url = `https://wa.me/27623881570?text=${encodeURIComponent(text)}`;
-      window.open(url, '_blank', 'noopener,noreferrer');
-      closeModal();
-    });
-
-    // Mobile menu
-    const menuBtn = $('menuBtn');
-    const menuSheet = $('menuSheet');
-    const menuShade = $('menuShade');
-    const menuClose = $('menuClose');
-
-    function openMenu(){
-      menuSheet.style.display = 'block';
-      menuSheet.setAttribute('aria-hidden','false');
-      document.body.style.overflow = 'hidden';
-    }
-
-    function closeMenu(){
-      menuSheet.style.display = 'none';
-      menuSheet.setAttribute('aria-hidden','true');
-      document.body.style.overflow = '';
-    }
-
-    menuBtn.addEventListener('click', openMenu);
-    menuShade.addEventListener('click', closeMenu);
-    menuClose.addEventListener('click', closeMenu);
-
-    // Close menu on link click
-    document.querySelectorAll('.m-link').forEach(a=>{
-      a.addEventListener('click', ()=> closeMenu());
-    });
-
-    // Escape key closes modal/menu
-    document.addEventListener('keydown', (e)=>{
-      if (e.key === 'Escape'){
-        if (backdrop.style.display === 'flex') closeModal();
-        if (menuSheet.style.display === 'block') closeMenu();
-      }
-    });
-
-    // Typewriter for hero copy
-    function typeText(el, text, speed, done){
-      if (!el) return done && done();
-      let i = 0;
-      el.textContent = '';
-      el.classList.add('typing-caret');
-      const tick = () => {
-        i += 1;
-        el.textContent = text.slice(0, i);
-        if (i < text.length){
-          setTimeout(tick, speed);
-          return;
-        }
-        el.classList.remove('typing-caret');
-        if (done) done();
-      };
-      tick();
-    }
-
-    function initHeroTypewriter(){
-      const copy = document.querySelector('.hero-copy');
-      if (!copy) return;
-      const title = copy.querySelector('h1');
-      const lead = copy.querySelector('.lead');
-      if (!title || !lead) return;
-
-      const titleText = title.textContent.trim();
-      const leadText = lead.textContent.replace(/\s+/g, ' ').trim();
-      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-      const startTyping = () => {
-        const lockHeight = copy.offsetHeight;
-        copy.style.minHeight = `${lockHeight}px`;
-        copy.classList.add('typing-started');
-        if (reduceMotion){
-          title.textContent = titleText;
-          lead.textContent = leadText;
-          copy.style.minHeight = '';
-          return;
-        }
-        title.textContent = '';
-        lead.textContent = '';
-        typeText(title, titleText, 24, () => {
-          copy.classList.add('lead-typing-started');
-          typeText(lead, leadText, 11, () => {
-            copy.style.minHeight = '';
-          });
-        });
-      };
-
-      if (!('IntersectionObserver' in window)){
-        startTyping();
-        return;
-      }
-      const io = new IntersectionObserver((entries, observer) => {
-        entries.forEach((entry) => {
-          if (!entry.isIntersecting) return;
-          observer.disconnect();
-          startTyping();
-        });
-      }, { threshold: 0.2 });
-      io.observe(copy);
-    }
-
-    initHeroTypewriter();
-
-    // Nice-to-have: smooth scroll for in-page links
-    document.querySelectorAll('a[href^="#"]').forEach(a => {
-      a.addEventListener('click', (e)=>{
-        const href = a.getAttribute('href');
-        if (!href || href === '#') return;
-        const target = document.querySelector(href);
-        if (!target) return;
-        e.preventDefault();
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      });
-    });
-  </script>
+  // Scroll reveal
+  const revealEls = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+    }, { threshold: 0.1 });
+    revealEls.forEach(el => io.observe(el));
+  } else {
+    revealEls.forEach(el => el.classList.add('visible'));
+  }
+</script>
 </body>
 </html>
